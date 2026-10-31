@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PeakAge - Ye Diwali, ₹11 Waali</title>
+  <title>Nityaseva - Eternal Service, Timeless Care</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
       position: relative;
     }
 
-    /* Navbar */
+    /* ============ NAVBAR ============ */
     .navbar {
       display: flex;
       align-items: center;
@@ -62,33 +62,51 @@
       background: inherit;
     }
 
-    .brand-pill {
-      background: #fffbf2;
-      color: #2b1320;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
+    .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 2px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      gap: 10px;
     }
-    .brand-pill span {
-      color: #d88235;
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text .name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text .tagline {
+      font-size: 0.62rem;
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 500;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .nav-link {
       color: #f7cb63;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
     }
 
@@ -96,8 +114,8 @@
       background: var(--gold-gradient);
       color: #2d1404;
       font-weight: 700;
-      font-size: 0.9rem;
-      padding: 8px 16px;
+      font-size: 0.85rem;
+      padding: 8px 14px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -107,12 +125,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      white-space: nowrap;
     }
     .btn-gold:active {
       transform: scale(0.97);
     }
 
-    /* Festive Lanterns Graphic Header */
+    /* ============ FESTIVE DECOR ============ */
     .festive-decor {
       display: flex;
       justify-content: space-around;
@@ -142,7 +161,7 @@
     .lantern:nth-child(4) .lantern-body { background: #ff5e36; height: 30px; }
     .lantern:nth-child(5) .lantern-body { background: #3ec6e0; }
 
-    /* Hero Section */
+    /* ============ HERO ============ */
     .hero {
       text-align: center;
       padding: 4px 0 24px;
@@ -163,7 +182,7 @@
     }
 
     .hero-title {
-      font-size: 2.7rem;
+      font-size: 2.6rem;
       line-height: 1.15;
       font-weight: 800;
       letter-spacing: -0.5px;
@@ -178,7 +197,7 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
-      max-width: 90%;
+      max-width: 92%;
       margin: 0 auto 20px;
     }
 
@@ -225,7 +244,7 @@
       100% { opacity: 0.5; }
     }
 
-    /* Booking Form Container */
+    /* ============ BOOKING FORM ============ */
     .booking-card {
       background: var(--form-bg);
       color: var(--text-dark);
@@ -248,7 +267,7 @@
     }
 
     .booking-title {
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 800;
       margin-top: 6px;
       margin-bottom: 6px;
@@ -319,7 +338,6 @@
       color: #7b6f69;
     }
 
-    /* City not listed alert */
     .banner-box {
       background: #faeed9;
       border-radius: 18px;
@@ -368,7 +386,6 @@
       cursor: pointer;
     }
 
-    /* Form Fields */
     .field-label {
       font-size: 0.85rem;
       font-weight: 700;
@@ -414,7 +431,6 @@
       flex: 1;
     }
 
-    /* Map Graphic Area */
     .map-preview {
       width: 100%;
       height: 130px;
@@ -455,9 +471,9 @@
       justify-content: center;
       gap: 6px;
       cursor: pointer;
+      width: 100%;
     }
 
-    /* Date and Time slots */
     .date-scroll {
       display: flex;
       gap: 8px;
@@ -527,7 +543,6 @@
       color: #7b6f69;
     }
 
-    /* Checkbox & Pay Button */
     .terms-check {
       display: flex;
       align-items: flex-start;
@@ -559,6 +574,20 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      cursor:
+    .btn-submit {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #261103;
+      border: none;
+      padding: 15px;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(229, 169, 60, 0.45);
       transition: transform 0.15s ease;
@@ -572,9 +601,9 @@
       margin-top: 12px;
     }
 
-    /* Section Headings */
+    /* ============ SECTION HEADINGS ============ */
     .section-title {
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       font-weight: 800;
       margin-bottom: 22px;
       line-height: 1.25;
@@ -583,7 +612,7 @@
       color: var(--gold-primary);
     }
 
-    /* 4 Steps Grid */
+    /* ============ 4 STEPS GRID ============ */
     .steps-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -634,7 +663,7 @@
       line-height: 1.35;
     }
 
-    /* Story Section */
+    /* ============ STORY SECTION ============ */
     .story-section {
       margin-bottom: 40px;
     }
@@ -679,7 +708,7 @@
       color: var(--text-muted);
     }
 
-    /* FAQ Section */
+    /* ============ FAQ SECTION ============ */
     .faq-list {
       display: flex;
       flex-direction: column;
@@ -729,7 +758,6 @@
       color: #27152f;
     }
 
-    .faq-answer
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -747,7 +775,7 @@
       line-height: 1.55;
     }
 
-    /* Offer Terms Box */
+    /* ============ OFFER TERMS BOX ============ */
     .offer-terms-box {
       border: 1.5px dashed #5a3765;
       border-radius: 18px;
@@ -770,7 +798,27 @@
       margin-bottom: 0;
     }
 
-    /* Footer */
+    /* ============ FOOTER ============ */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    }
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -811,7 +859,7 @@
       line-height: 1.5;
     }
 
-    /* Floating Dropper Button (decorative element from screenshots) */
+    /* ============ FLOATING BUTTON ============ */
     .float-dropper {
       position: fixed;
       right: 14px;
@@ -831,7 +879,6 @@
       opacity: 0.85;
     }
 
-    /* Page section divider spacing */
     .page-section {
       padding-top: 10px;
     }
@@ -849,7 +896,13 @@
 
   <!-- ================= NAVBAR ================= -->
   <div class="navbar">
-    <div class="brand-pill">PEAK<span>AGE</span></div>
+    <div class="brand-wrap">
+      <img src="nityaseva-logo.png" alt="Nityaseva Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="name">NITYASEVA</span>
+        <span class="tagline">Eternal service, Timeless care.</span>
+      </div>
+    </div>
     <div class="nav-actions">
       <a href="#plans" class="nav-link">Plans</a>
       <a href="#book" class="btn-gold">Book for ₹11</a>
@@ -870,7 +923,7 @@
     <div class="badge-pill">🪔 Diwali offer · Visits 1 to 20 November</div>
     <h1 class="hero-title">Ye Diwali,<span class="gold-text">₹11 Waali</span></h1>
     <p class="hero-sub">
-      A home visit from your city's PeakAge coordinator for just ₹11. 
+      A home visit from your city's Nityaseva coordinator for just ₹11. 
       We meet your parents in person, explain everything and answer every question.
     </p>
 
@@ -981,7 +1034,7 @@
 
     <label class="terms-check">
       <input type="checkbox" id="agreeTerms">
-      <span>I agree to the offer terms below and PeakAge's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</span>
+      <span>I agree to the offer terms below and Nityaseva's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</span>
     </label>
 
     <button class="btn-submit" id="payBtn">🪔 Pay ₹11 and book</button>
@@ -1031,7 +1084,7 @@
     </p>
 
     <p class="story-p">
-      This Diwali, for just ₹11, your PeakAge city coordinator visits your parents 
+      This Diwali, for just ₹11, your Nityaseva city coordinator visits your parents 
       at home. They meet them in person, explain how regular nurse visits, a doctor 
       on call and companion visits work, and answer every question, slowly. You 
       decide later, with no pressure.
@@ -1070,7 +1123,7 @@
           <div class="faq-toggle-btn">+</div>
         </div>
         <div class="faq-answer">
-          <p>Your city coordinator comes to your parents' home, introduces themself, and explains how PeakAge works — regular nurse visits, doctor on call and companion visits. They answer every question your parents may have, with no pressure to buy anything.</p>
+          <p>Your city coordinator comes to your parents' home, introduces themself, and explains how Nityaseva works — regular nurse visits, doctor on call and companion visits. They answer every question your parents may have, with no pressure to buy anything.</p>
         </div>
       </div>
 
@@ -1110,7 +1163,7 @@
           <div class="faq-toggle-btn">+</div>
         </div>
         <div class="faq-answer">
-          <p>The best gift is often time and attention — someone visiting them, checking on their health, and being available when needed. A PeakAge home visit gives your parents exactly that, explained in person.</p>
+          <p>The best gift is often time and attention — someone visiting them, checking on their health, and being available when needed. A Nityaseva home visit gives your parents exactly that, explained in person.</p>
         </div>
       </div>
 
@@ -1120,7 +1173,7 @@
           <div class="faq-toggle-btn">×</div>
         </div>
         <div class="faq-answer">
-          <p>Is Diwali, mummy papa ko ek visit gift kijiye. Sirf ₹11 mein PeakAge ke city coordinator Lucknow, Nagpur ya Bangalore mein unke ghar aakar milenge, sab kuch aaram se samjhayenge aur unke saare sawaalon ka jawab denge.</p>
+          <p>Is Diwali, mummy papa ko ek visit gift kijiye. Sirf ₹11 mein Nityaseva ke city coordinator Lucknow, Nagpur ya Bangalore mein unke ghar aakar milenge, sab kuch aaram se samjhayenge aur unke saare sawaalon ka jawab denge.</p>
         </div>
       </div>
 
@@ -1148,7 +1201,12 @@
   </div>
 
   <!-- ================= FOOTER ================= -->
-  <div class="footer-links">
+  <div class="footer-brand">
+    <img src="nityaseva-logo.png" alt="Nityaseva Logo" class="footer-logo">
+    <div class="footer-tagline">Eternal service, Timeless care.</div>
+  </div>
+
+    <div class="footer-links">
     <a href="#" class="footer-pill">Home</a>
     <a href="#plans" class="footer-pill">Plans</a>
     <a href="#terms" class="footer-pill">Terms</a>
@@ -1158,10 +1216,10 @@
   <a href="https://wa.me/910000000000" class="footer-whatsapp">WhatsApp us</a>
 
   <div class="footer-copy">
-    © 2026 Peakwell Health Services Pvt. Ltd. Shubh Deepavali.
+    © 2026 Nityaseva Health Services Pvt. Ltd. Shubh Deepavali.
   </div>
 
-  <!-- Decorative floating button seen in screenshots -->
+  <!-- Decorative floating button -->
   <div class="float-dropper">🖊️</div>
 
 </div>
@@ -1236,6 +1294,11 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
+  });
+
+  // ============ MAP PIN BUTTON (placeholder interaction) ============
+  document.querySelector('.map-btn').addEventListener('click', () => {
+    alert('Opening map to pin the exact home location...');
   });
 </script>
 
