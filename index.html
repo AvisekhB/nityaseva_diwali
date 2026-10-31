@@ -1,900 +1,250 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nityaseva - Eternal Service, Timeless Care</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-dark: #190c1e;
-      --bg-card-dark: #27152f;
-      --bg-card-border: #3f2249;
-      --gold-primary: #e5a93c;
-      --gold-light: #fcd36c;
-      --gold-gradient: linear-gradient(180deg, #f7cb63 0%, #e6a735 100%);
-      --text-white: #ffffff;
-      --text-muted: #c9b7cf;
-      --text-dark: #231815;
-      --form-bg: #fffbf2;
-      --form-input-bg: #f4ecdf;
-      --form-border: #eedec7;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-white);
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    .mobile-container {
-      width: 100%;
-      max-width: 480px;
-      min-height: 100vh;
-      background: radial-gradient(circle at 50% 0%, #36173d 0%, #190c1e 45%, #120716 100%);
-      padding: 16px 20px 48px;
-      position: relative;
-    }
-
-    /* ============ NAVBAR ============ */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px 0 16px;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: inherit;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-      flex-shrink: 0;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text .name {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.5px;
-    }
-
-    .brand-text .tagline {
-      font-size: 0.62rem;
-      color: var(--gold-light);
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-link {
-      color: #f7cb63;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .btn-gold {
-      background: var(--gold-gradient);
-      color: #2d1404;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(229, 169, 60, 0.35);
-      transition: transform 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-    }
-    .btn-gold:active {
-      transform: scale(0.97);
-    }
-
-    /* ============ FESTIVE DECOR ============ */
-    .festive-decor {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      margin: 10px 0 20px;
-      opacity: 0.85;
-    }
-    .lantern {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .lantern-line {
-      width: 1px;
-      height: 24px;
-      background: #fcd36c;
-    }
-    .lantern-body {
-      width: 22px;
-      height: 28px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(255, 175, 40, 0.7);
-    }
-    .lantern:nth-child(1) .lantern-body { background: #ff7243; }
-    .lantern:nth-child(2) .lantern-body { background: #ff4785; height: 32px; }
-    .lantern:nth-child(3) .lantern-body { background: #ffbe3b; }
-    .lantern:nth-child(4) .lantern-body { background: #ff5e36; height: 30px; }
-    .lantern:nth-child(5) .lantern-body { background: #3ec6e0; }
-
-    /* ============ HERO ============ */
-    .hero {
-      text-align: center;
-      padding: 4px 0 24px;
-    }
-
-    .badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(247, 203, 99, 0.12);
-      border: 1px solid rgba(247, 203, 99, 0.3);
-      color: #ffd875;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .hero-title {
-      font-size: 2.6rem;
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 14px;
-    }
-    .hero-title .gold-text {
-      color: var(--gold-light);
-      display: block;
-    }
-
-    .hero-sub {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      max-width: 92%;
-      margin: 0 auto 20px;
-    }
-
-    .feature-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .tag-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #2b1531;
-      border: 1px solid #43224d;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      color: #f1e2f5;
-    }
-
-    .live-counter {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: #e2cadb;
-      margin-top: 10px;
-    }
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      background: #e44343;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #ff4747;
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-
-    /* ============ BOOKING FORM ============ */
-    .booking-card {
-      background: var(--form-bg);
-      color: var(--text-dark);
-      border-radius: 28px;
-      padding: 24px 20px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-      margin: 20px 0 40px;
-      position: relative;
-    }
-
-    .booking-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      border-radius: 28px 28px 0 0;
-      background: repeating-linear-gradient(45deg, #f5a623, #f5a623 10px, #e74c3c 10px, #e74c3c 20px);
-    }
-
-    .booking-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-top: 6px;
-      margin-bottom: 6px;
-      color: #190c1e;
-    }
-
-    .booking-sub {
-      color: #6d625d;
-      font-size: 0.84rem;
-      line-height: 1.4;
-      margin-bottom: 20px;
-    }
-
-    .form-group-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #2a1f1b;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .live-slots-badge {
-      font-size: 0.75rem;
-      color: #d93d3d;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .city-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .city-btn {
-      background: #f4ecdf;
-      border: 1.5px solid transparent;
-      border-radius: 16px;
-      padding: 12px 6px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .city-btn.active {
-      background: #ffffff;
-      border-color: #231815;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
-    .city-name {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #241a18;
-      margin-bottom: 4px;
-    }
-    .city-count {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #190c1e;
-    }
-    .city-count span {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #7b6f69;
-    }
-
-    .banner-box {
-      background: #faeed9;
-      border-radius: 18px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    .banner-top {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .banner-icon {
-      background: #f7a02b;
-      color: white;
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .banner-text h4 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-      color: #2b1f1a;
-    }
-    .banner-text p {
-      font-size: 0.78rem;
-      color: #6f5f58;
-      line-height: 1.35;
-    }
-    .btn-dark-full {
-      background: #190c1e;
-      color: white;
-      border: none;
-      border-radius: 999px;
-      padding: 10px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .field-label {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #271d1a;
-      margin-top: 14px;
-      margin-bottom: 8px;
-    }
-    .input-box {
-      width: 100%;
-      background: var(--form-input-bg);
-      border: 1px solid var(--form-border);
-      border-radius: 14px;
-      padding: 13px 14px;
-      font-size: 0.9rem;
-      color: #241a18;
-      outline: none;
-      margin-bottom: 10px;
-    }
-    .input-box::placeholder {
-      color: #9f9189;
-    }
-
-    .phone-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .prefix-box {
-      background: var(--form-input-bg);
-      border: 1px solid var(--form-border);
-      border-radius: 14px;
-      padding: 13px 14px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #241a18;
-      width: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .phone-row .input-box {
-      margin-bottom: 0;
-      flex: 1;
-    }
-
-    .map-preview {
-      width: 100%;
-      height: 130px;
-      background: #e4e0d7;
-      border-radius: 18px;
-      margin-top: 6px;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 12px;
-      background-image: 
-        radial-gradient(#cfc9ba 20%, transparent 20%),
-        linear-gradient(to right, #ded8ca 2px, transparent 2px),
-        linear-gradient(to bottom, #ded8ca 2px, transparent 2px);
-      background-size: 24px 24px, 40px 40px, 40px 40px;
-    }
-    .map-pin {
-      position: absolute;
-      top: 36%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.8rem;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
-    }
-    .map-btn {
-      background: #190c1e;
-      color: white;
-      border: none;
-      padding: 9px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .date-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 12px;
-      scrollbar-width: none;
-    }
-    .date-scroll::-webkit-scrollbar { display: none; }
-
-    .date-pill {
-      min-width: 62px;
-      background: #f4ecdf;
-      border-radius: 14px;
-      padding: 10px 6px;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid transparent;
-      flex-shrink: 0;
-    }
-    .date-pill.active {
-      background: #ffffff;
-      border-color: #241a18;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-    }
-    .date-pill .day {
-      font-size: 0.7rem;
-      color: #7b6f69;
-      font-weight: 600;
-    }
-    .date-pill .num {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #190c1e;
-    }
-    .date-pill .month {
-      font-size: 0.7rem;
-      color: #7b6f69;
-      font-weight: 600;
-    }
-
-    .time-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-    .time-slot {
-      background: #f4ecdf;
-      padding: 10px 4px;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-    .time-slot.active {
-      background: #ffffff;
-      border-color: #241a18;
-    }
-    .time-slot .time-title {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #241a18;
-    }
-    .time-slot .time-sub {
-      font-size: 0.68rem;
-      color: #7b6f69;
-    }
-
-    .terms-check {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 16px 0;
-      font-size: 0.8rem;
-      color: #4a3e39;
-      line-height: 1.4;
-    }
-    .terms-check input {
-      margin-top: 3px;
-      accent-color: #190c1e;
-    }
-    .terms-check a {
-      color: #190c1e;
-      text-decoration: underline;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background: var(--gold-gradient);
-      color: #261103;
-      border: none;
-      padding: 15px;
-      border-radius: 999px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor:
-    .btn-submit {
-      width: 100%;
-      background: var(--gold-gradient);
-      color: #261103;
-      border: none;
-      padding: 15px;
-      border-radius: 999px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(229, 169, 60, 0.45);
-      transition: transform 0.15s ease;
-    }
-    .btn-submit:active { transform: scale(0.98); }
-
-    .trust-footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #8c7f79;
-      margin-top: 12px;
-    }
-
-    /* ============ SECTION HEADINGS ============ */
-    .section-title {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin-bottom: 22px;
-      line-height: 1.25;
-    }
-    .section-title .gold-accent {
-      color: var(--gold-primary);
-    }
-
-    /* ============ 4 STEPS GRID ============ */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-
-    .step-card {
-      background: var(--bg-card-dark);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 20px;
-      padding: 16px 14px;
-      position: relative;
-    }
-
-    .step-card .num-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      color: #7b4f87;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .step-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: #fcd36c;
-      color: #27152f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 14px;
-    }
-
-    .step-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .step-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-    }
-
-    /* ============ STORY SECTION ============ */
-    .story-section {
-      margin-bottom: 40px;
-    }
-    .story-p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
-
-    .quote-box {
-      background: #25132c;
-      border: 1px solid #3c1e45;
-      border-radius: 18px;
-      padding: 18px 16px;
-      margin: 22px 0;
-      font-style: italic;
-      color: #f1ddf5;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-
-    .city-expand-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .city-expand-item {
-      background: var(--bg-card-dark);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 16px;
-      padding: 16px;
-    }
-    .city-expand-item h4 {
-      font-size: 0.95rem;
-      color: var(--gold-light);
-      margin-bottom: 4px;
-    }
-    .city-expand-item p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* ============ FAQ SECTION ============ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-
-    .faq-card {
-      background: var(--bg-card-dark);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 20px;
-      padding: 16px 18px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .faq-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .faq-question {
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.35;
-      color: #ffffff;
-    }
-
-    .faq-toggle-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #391c42;
-      color: #f7cb63;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-
-    .faq-card.open .faq-toggle-btn {
-      background: #f7cb63;
-      color: #27152f;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, margin-top 0.3s ease;
-    }
-
-    .faq-card.open .faq-answer {
-      max-height: 300px;
-      margin-top: 14px;
-    }
-
-    .faq-answer p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ============ OFFER TERMS BOX ============ */
-    .offer-terms-box {
-      border: 1.5px dashed #5a3765;
-      border-radius: 18px;
-      padding: 20px 18px;
-      margin-bottom: 40px;
-    }
-    .offer-terms-title {
-      color: var(--gold-primary);
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 14px;
-    }
-    .offer-terms-box p {
-      font-size: 0.83rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
-    .offer-terms-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ============ FOOTER ============ */
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-    .footer-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-    }
-    .footer-tagline {
-      font-size: 0.78rem;
-      color: var(--gold-light);
-      font-style: italic;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .footer-pill {
-      background: var(--bg-card-dark);
-      border: 1px solid var(--bg-card-border);
-      color: #e9d9ef;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .footer-whatsapp {
-      display: block;
-      text-align: center;
-      background: var(--gold-gradient);
-      color: #261103;
-      padding: 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-decoration: none;
-      margin-bottom: 20px;
-    }
-
-    .footer-copy {
-      text-align: center;
-      font-size: 0.78rem;
-      color: #9382a0;
-      line-height: 1.5;
-    }
-
-    /* ============ FLOATING BUTTON ============ */
-    .float-dropper {
-      position: fixed;
-      right: 14px;
-      top: 340px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: #3aa6a6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.3rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-      z-index: 999;
-      cursor: pointer;
-      opacity: 0.85;
-    }
-
-    .page-section {
-      padding-top: 10px;
-    }
-
-    @media (min-width: 540px) {
-      .mobile-container {
-        max-width: 480px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nityaseva - Eternal Service, Timeless Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-dark:#190c1e; --bg-card-dark:#27152f; --bg-card-border:#3f2249;
+    --gold-primary:#e5a93c; --gold-light:#fcd36c;
+    --gold-gradient:linear-gradient(180deg,#f7cb63 0%,#e6a735 100%);
+    --text-white:#fff; --text-muted:#c9b7cf; --text-dark:#231815;
+    --form-bg:#fffbf2; --form-input-bg:#f4ecdf; --form-border:#eedec7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent;}
+  body{background:var(--bg-dark);color:var(--text-white);display:flex;justify-content:center;min-height:100vh;overflow-x:hidden;}
+
+  .page-wrap{width:100%;max-width:480px;min-height:100vh;
+    background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
+    padding:16px 20px 48px;position:relative;}
+
+  @media (min-width:901px){
+    .page-wrap{max-width:1200px;padding:24px 48px 70px;}
+  }
+
+  /* NAVBAR */
+  .navbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 16px;
+    position:sticky;top:0;z-index:50;background:inherit;}
+  .brand-wrap{display:flex;align-items:center;gap:10px;}
+  .brand-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.35);flex-shrink:0;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text .name{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:.5px;}
+  .brand-text .tagline{font-size:.62rem;color:var(--gold-light);font-style:italic;font-weight:500;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .nav-link{color:#f7cb63;text-decoration:none;font-size:.9rem;font-weight:600;}
+  .btn-gold{background:var(--gold-gradient);color:#2d1404;font-weight:700;font-size:.85rem;padding:8px 14px;
+    border-radius:999px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 14px rgba(229,169,60,.35);
+    transition:transform .15s ease;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;}
+  .btn-gold:active{transform:scale(.97);}
+
+  /* FESTIVE DECOR */
+  .festive-decor{display:flex;justify-content:space-around;align-items:flex-start;margin:10px 0 20px;opacity:.85;}
+  .lantern{display:flex;flex-direction:column;align-items:center;}
+  .lantern-line{width:1px;height:24px;background:#fcd36c;}
+  .lantern-body{width:22px;height:28px;border-radius:12px;box-shadow:0 0 12px rgba(255,175,40,.7);}
+  .lantern:nth-child(1) .lantern-body{background:#ff7243;}
+  .lantern:nth-child(2) .lantern-body{background:#ff4785;height:32px;}
+  .lantern:nth-child(3) .lantern-body{background:#ffbe3b;}
+  .lantern:nth-child(4) .lantern-body{background:#ff5e36;height:30px;}
+  .lantern:nth-child(5) .lantern-body{background:#3ec6e0;}
+
+  /* HERO GRID - responsive two-column on desktop */
+  .hero-grid{display:block;}
+  @media (min-width:901px){
+    .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:48px;align-items:start;}
+  }
+
+  .hero{text-align:center;padding:4px 0 24px;}
+  @media (min-width:901px){ .hero{text-align:left;padding-top:20px;} }
+
+  .badge-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+    background:rgba(247,203,99,.12);border:1px solid rgba(247,203,99,.3);color:#ffd875;font-size:.8rem;font-weight:600;margin-bottom:16px;}
+  .hero-title{font-size:2.6rem;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;}
+  @media (min-width:901px){ .hero-title{font-size:3.4rem;} }
+  .hero-title .gold-text{color:var(--gold-light);display:block;}
+  .hero-sub{color:var(--text-muted);font-size:.95rem;line-height:1.5;max-width:92%;margin:0 auto 20px;}
+  @media (min-width:901px){ .hero-sub{margin:0 0 20px;max-width:500px;} }
+
+  .feature-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:14px;}
+  @media (min-width:901px){ .feature-tags{justify-content:flex-start;} }
+  .tag-item{display:inline-flex;align-items:center;gap:6px;background:#2b1531;border:1px solid #43224d;
+    padding:6px 12px;border-radius:999px;font-size:.8rem;color:#f1e2f5;}
+
+  .pay-later-pill{display:inline-flex;align-items:center;gap:8px;background:#2b1531;border:1px solid #5a3765;
+    padding:10px 18px;border-radius:999px;font-size:.85rem;font-weight:700;color:var(--gold-light);margin-top:14px;}
+
+  .live-counter{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.85rem;color:#e2cadb;margin-top:10px;}
+  @media (min-width:901px){ .live-counter{justify-content:flex-start;} }
+  .live-dot{width:8px;height:8px;background:#e44343;border-radius:50%;box-shadow:0 0 8px #ff4747;animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%{opacity:.5;}50%{opacity:1;}100%{opacity:.5;}}
+
+  /* BOOKING CARD */
+  .booking-card{background:var(--form-bg);color:var(--text-dark);border-radius:28px;padding:24px 20px;
+    box-shadow:0 16px 36px rgba(0,0,0,.45);margin:20px 0 40px;position:relative;}
+  @media (min-width:901px){ .booking-card{margin:0;position:sticky;top:20px;} }
+  .booking-card::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;border-radius:28px 28px 0 0;
+    background:repeating-linear-gradient(45deg,#f5a623,#f5a623 10px,#e74c3c 10px,#e74c3c 20px);}
+  .booking-title{font-size:1.5rem;font-weight:800;margin-top:6px;margin-bottom:6px;color:#190c1e;}
+  .booking-sub{color:#6d625d;font-size:.84rem;line-height:1.4;margin-bottom:20px;}
+  .form-group-title{font-size:.88rem;font-weight:700;color:#2a1f1b;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+  .live-slots-badge{font-size:.75rem;color:#d93d3d;font-weight:700;display:flex;align-items:center;gap:5px;}
+
+  .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+  .city-btn{background:#f4ecdf;border:1.5px solid transparent;border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s;}
+  .city-btn.active{background:#fff;border-color:#231815;box-shadow:0 4px 10px rgba(0,0,0,.06);}
+  .city-name{font-size:.88rem;font-weight:700;color:#241a18;margin-bottom:4px;}
+  .city-count{font-size:1.3rem;font-weight:800;color:#190c1e;}
+  .city-count span{font-size:.7rem;font-weight:600;color:#7b6f69;}
+
+  .banner-box{background:#faeed9;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+  .banner-top{display:flex;gap:12px;align-items:flex-start;}
+  .banner-icon{background:#f7a02b;color:#fff;width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+  .banner-text h4{font-size:.9rem;font-weight:700;margin-bottom:2px;color:#2b1f1a;}
+  .banner-text p{font-size:.78rem;color:#6f5f58;line-height:1.35;}
+
+
+  .btn-dark-full{background:#190c1e;color:#fff;border:none;border-radius:999px;padding:10px;font-weight:700;
+    font-size:.85rem;cursor:pointer;text-decoration:none;display:block;text-align:center;width:100%;}
+
+  .field-label{font-size:.85rem;font-weight:700;color:#271d1a;margin-top:14px;margin-bottom:8px;}
+  .input-box{width:100%;background:var(--form-input-bg);border:1px solid var(--form-border);border-radius:14px;
+    padding:13px 14px;font-size:.9rem;color:#241a18;outline:none;margin-bottom:10px;}
+  .input-box::placeholder{color:#9f9189;}
+
+  .phone-row{display:flex;gap:8px;margin-bottom:10px;}
+  .prefix-box{background:var(--form-input-bg);border:1px solid var(--form-border);border-radius:14px;
+    padding:13px 14px;font-size:.9rem;font-weight:700;color:#241a18;width:60px;display:flex;align-items:center;justify-content:center;}
+  .phone-row .input-box{margin-bottom:0;flex:1;}
+
+  .map-preview{width:100%;height:130px;background:#e4e0d7;border-radius:18px;margin-top:6px;margin-bottom:16px;
+    position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;
+    background-image:radial-gradient(#cfc9ba 20%,transparent 20%),
+      linear-gradient(to right,#ded8ca 2px,transparent 2px),
+      linear-gradient(to bottom,#ded8ca 2px,transparent 2px);
+    background-size:24px 24px,40px 40px,40px 40px;}
+  .map-pin{position:absolute;top:36%;left:50%;transform:translate(-50%,-50%);font-size:1.8rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));}
+  .map-btn{background:#190c1e;color:#fff;border:none;padding:9px;border-radius:999px;font-size:.82rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;width:100%;}
+
+  .date-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:thin;scrollbar-color:#d8c8a8 transparent;}
+  .date-scroll::-webkit-scrollbar{height:4px;}
+  .date-scroll::-webkit-scrollbar-thumb{background:#d8c8a8;border-radius:4px;}
+
+  .date-pill{min-width:58px;background:#f4ecdf;border-radius:14px;padding:10px 4px;text-align:center;cursor:pointer;
+    border:1px solid transparent;flex-shrink:0;}
+  .date-pill.active{background:#fff;border-color:#241a18;box-shadow:0 3px 8px rgba(0,0,0,.06);}
+  .date-pill .day{font-size:.68rem;color:#7b6f69;font-weight:600;}
+  .date-pill .num{font-size:1.1rem;font-weight:800;color:#190c1e;}
+  .date-pill .month{font-size:.68rem;color:#7b6f69;font-weight:600;}
+
+  .time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px;}
+  .time-slot{background:#f4ecdf;padding:10px 4px;border-radius:12px;text-align:center;cursor:pointer;border:1px solid transparent;}
+  .time-slot.active{background:#fff;border-color:#241a18;}
+  .time-slot .time-title{font-size:.78rem;font-weight:700;color:#241a18;}
+  .time-slot .time-sub{font-size:.68rem;color:#7b6f69;}
+
+  .terms-check{display:flex;align-items:flex-start;gap:10px;margin:16px 0;font-size:.8rem;color:#4a3e39;line-height:1.4;}
+  .terms-check input{margin-top:3px;accent-color:#190c1e;flex-shrink:0;}
+  .terms-check a{color:#190c1e;text-decoration:underline;}
+
+  .btn-submit{width:100%;background:var(--gold-gradient);color:#261103;border:none;padding:15px;border-radius:999px;
+    font-size:1.05rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+    box-shadow:0 6px 18px rgba(229,169,60,.45);transition:transform .15s ease;}
+  .btn-submit:active{transform:scale(.98);}
+  .btn-submit:disabled{opacity:.6;cursor:not-allowed;}
+
+  .form-status{text-align:center;font-size:.85rem;margin-top:12px;font-weight:600;display:none;}
+  .form-status.success{color:#1a7a3c;display:block;}
+  .form-status.error{color:#c0392b;display:block;}
+  .form-status.loading{color:#6d625d;display:block;}
+
+  .whatsapp-contact-line{text-align:center;font-size:.8rem;color:#6d625d;margin-top:12px;}
+  .whatsapp-contact-line a{color:#1a7a3c;font-weight:700;text-decoration:none;}
+
+  /* SECTION HEADINGS */
+  .section-title{font-size:1.7rem;font-weight:800;margin-bottom:22px;line-height:1.25;}
+  @media (min-width:901px){ .section-title{font-size:2.2rem;} }
+  .section-title .gold-accent{color:var(--gold-primary);}
+
+  /* STEPS GRID - 2 col mobile, 4 col desktop (matches screenshot) */
+  .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px;}
+  @media (min-width:901px){ .steps-grid{grid-template-columns:repeat(4,1fr);gap:16px;} }
+
+  .step-card{background:var(--bg-card-dark);border:1px solid var(--bg-card-border);border-radius:20px;padding:16px 14px;position:relative;}
+  .step-card .num-badge{position:absolute;top:14px;right:14px;color:#7b4f87;font-weight:700;font-size:.85rem;}
+  .step-icon{width:38px;height:38px;border-radius:12px;background:#fcd36c;color:#27152f;display:flex;
+    align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;}
+  .step-title{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#fff;}
+  .step-desc{font-size:.78rem;color:var(--text-muted);line-height:1.35;}
+
+  /* STORY SECTION - side by side on desktop */
+  .story-section{margin-bottom:40px;}
+  .story-grid{display:block;}
+  @media (min-width:901px){
+    .story-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start;}
+  }
+  .story-p{color:var(--text-muted);font-size:.92rem;line-height:1.55;margin-bottom:16px;}
+
+  .quote-box{background:#25132c;border:1px solid #3c1e45;border-radius:18px;padding:18px 16px;margin:22px 0;
+    font-style:italic;color:#f1ddf5;font-size:.88rem;line-height:1.5;}
+
+  .city-expand-list{display:flex;flex-direction:column;gap:10px;margin-bottom:30px;}
+  .city-expand-item{background:var(--bg-card-dark);border:1px solid var(--bg-card-border);border-radius:16px;padding:16px;}
+  .city-expand-item h4{font-size:.95rem;color:var(--gold-light);margin-bottom:4px;}
+  .city-expand-item p{font-size:.8rem;color:var(--text-muted);}
+
+  /* FAQ SECTION */
+  .faq-section-wrap{max-width:900px;}
+  .faq-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+
+  .faq-card{background:var(--bg-card-dark);border:1px solid var(--bg-card-border);border-radius:20px;
+    padding:16px 18px;cursor:pointer;transition:background .2s;}
+  .faq-header{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .faq-question{font-size:.95rem;font-weight:700;line-height:1.35;color:#fff;}
+  .faq-toggle-btn{width:28px;height:28px;border-radius:50%;background:#391c42;color:#f7cb63;display:flex;
+    align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:transform .2s;}
+  .faq-card.open .faq-toggle-btn{background:#f7cb63;color:#27152f;}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease,margin-top .3s ease;}
+  .faq-card.open .faq-answer{max-height:300px;margin-top:14px;}
+  .faq-answer p{font-size:.85rem;color:var(--text-muted);line-height:1.55;}
+
+  /* OFFER TERMS BOX */
+  .offer-terms-box{border:1.5px dashed #5a3765;border-radius:18px;padding:20px 18px;margin-bottom:40px;}
+  .offer-terms-title{color:var(--gold-primary);font-weight:700;font-size:1rem;margin-bottom:14px;}
+  .offer-terms-box p{font-size:.83rem;color:var(--text-muted);line-height:1.55;margin-bottom:12px;}
+  .offer-terms-box p:last-child{margin-bottom:0;}
+
+  /* FOOTER */
+  .footer-brand{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:20px;}
+  .footer-logo{width:60px;height:60px;border-radius:50%;object-fit:cover;box-shadow:0 4px 14px rgba(0,0,0,.4);}
+  .footer-tagline{font-size:.78rem;color:var(--gold-light);font-style:italic;}
+
+  .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:14px;}
+  .footer-pill{background:var(--bg-card-dark);border:1px solid var(--bg-card-border);color:#e9d9ef;padding:10px 20px;
+    border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;cursor:pointer;}
+
+  .footer-whatsapp{display:block;text-align:center;background:var(--gold-gradient);color:#261103;padding:12px;
+    border-radius:999px;font-weight:700;font-size:.92rem;text-decoration:none;margin-bottom:20px;max-width:320px;margin-left:auto;margin-right:auto;}
+
+  .footer-copy{text-align:center;font-size:.78rem;color:#9382a0;line-height:1.5;}
+
+  .page-section{padding-top:10px;}
+</style>
 </head>
 <body>
 
-<div class="mobile-container">
+<div class="page-wrap">
 
-  <!-- ================= NAVBAR ================= -->
+  <!-- NAVBAR -->
   <div class="navbar">
     <div class="brand-wrap">
       <img src="nityaseva-logo.png" alt="Nityaseva Logo" class="brand-logo">
@@ -909,7 +259,6 @@
     </div>
   </div>
 
-  <!-- ================= FESTIVE DECOR ================= -->
   <div class="festive-decor">
     <div class="lantern"><div class="lantern-line"></div><div class="lantern-body"></div></div>
     <div class="lantern"><div class="lantern-line"></div><div class="lantern-body"></div></div>
@@ -918,130 +267,118 @@
     <div class="lantern"><div class="lantern-line"></div><div class="lantern-body"></div></div>
   </div>
 
-  <!-- ================= HERO SECTION ================= -->
-  <div class="hero">
-    <div class="badge-pill">🪔 Diwali offer · Visits 1 to 20 November</div>
-    <h1 class="hero-title">Ye Diwali,<span class="gold-text">₹11 Waali</span></h1>
-    <p class="hero-sub">
-      A home visit from your city's Nityaseva coordinator for just ₹11. 
-      We meet your parents in person, explain everything and answer every question.
-    </p>
+  <!-- HERO + BOOKING FORM (side-by-side on desktop) -->
+  <div class="hero-grid">
 
-    <div class="feature-tags">
-      <div class="tag-item">🏠 In-person, at home</div>
-      <div class="tag-item">💛 No pressure to buy</div>
-      <div class="tag-item">🎟️ 25 slots a city</div>
-    </div>
+    <div class="hero">
+      <div class="badge-pill">🪔 Diwali offer · Visits 1 to 20 November</div>
+      <h1 class="hero-title">Ye Diwali,<span class="gold-text">₹11 Waali</span></h1>
+      <p class="hero-sub">
+        A home visit from your city's Nityaseva coordinator for just ₹11.
+        We meet your parents in person, explain everything and answer every question.
+      </p>
 
-    <div class="live-counter">
-      <span class="live-dot"></span>
-      <span><b id="totalSlotsLeft">75</b> slots left across 3 cities</span>
-    </div>
-  </div>
-
-  <!-- ================= BOOKING FORM ================= -->
-  <div class="booking-card" id="book">
-    <h2 class="booking-title">Book your ₹11 visit</h2>
-    <p class="booking-sub">Only 25 slots in each city. We share your details only with your city coordinator.</p>
-
-    <div class="form-group-title">
-      Parents' city
-      <span class="live-slots-badge"><span class="live-dot" style="width:6px;height:6px;"></span> LIVE SLOTS</span>
-    </div>
-
-    <div class="city-grid" id="cityGrid">
-      <div class="city-btn active" data-city="Bangalore" data-slots="25">
-        <div class="city-name">Bangalore</div>
-        <div class="city-count">25 <span>left</span></div>
+      <div class="feature-tags">
+        <div class="tag-item">🏠 In-person, at home</div>
+        <div class="tag-item">💛 No pressure to buy</div>
+        <div class="tag-item">🎟️ 25 slots a city</div>
       </div>
-      <div class="city-btn" data-city="Lucknow" data-slots="25">
-        <div class="city-name">Lucknow</div>
-        <div class="city-count">25 <span>left</span></div>
-      </div>
-      <div class="city-btn" data-city="Nagpur" data-slots="25">
-        <div class="city-name">Nagpur</div>
-        <div class="city-count">25 <span>left</span></div>
+
+      <div class="pay-later-pill">💰 Book now, pay ₹11 later</div>
+
+      <div class="live-counter">
+        <span class="live-dot"></span>
+        <span><b id="totalSlotsLeft">50</b> slots left across 2 cities</span>
       </div>
     </div>
 
-    <div class="banner-box">
-      <div class="banner-top">
-        <div class="banner-icon">📍</div>
-        <div class="banner-text">
-          <h4>City not listed?</h4>
-          <p>We'll tell you when we come to your parents' city.</p>
+    <!-- BOOKING CARD -->
+    <div class="booking-card" id="book">
+      <h2 class="booking-title">Book your ₹11 visit</h2>
+      <p class="booking-sub">Only 25 slots in each city. We share your details only with your city coordinator.</p>
+
+      <div class="form-group-title">
+        Parents' city
+        <span class="live-slots-badge"><span class="live-dot" style="width:6px;height:6px;"></span> LIVE SLOTS</span>
+      </div>
+
+      <div class="city-grid" id="cityGrid">
+        <div class="city-btn active" data-city="Asansol" data-slots="25">
+          <div class="city-name">Asansol</div>
+          <div class="city-count">25 <span>left</span></div>
+        </div>
+        <div class="city-btn" data-city="Burnpur" data-slots="25">
+          <div class="city-name">Burnpur</div>
+          <div class="city-count">25 <span>left</span></div>
         </div>
       </div>
-      <button class="btn-dark-full" onclick="alert('Thanks! We will notify you when we launch in your city.')">Show interest →</button>
+
+      <div class="banner-box">
+        <div class="banner-top">
+          <div class="banner-icon">📍</div>
+          <div class="banner-text">
+            <h4>City not listed?</h4>
+            <p>We'll tell you when we come to your parents' city.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/919239258921?text=Hi%2C%20my%20parents%27%20city%20is%20not%20listed%20on%20Nityaseva.%20Please%20let%20me%20know%20when%20you%20launch%20there." target="_blank" class="btn-dark-full">Show interest →</a>
+      </div>
+
+      <form id="bookingForm">
+        <div class="field-label">You</div>
+        <input type="text" class="input-box" id="yourName" placeholder="Your name" required>
+        <div class="phone-row">
+          <div class="prefix-box">+91</div>
+          <input type="tel" class="input-box" id="yourPhone" placeholder="Mobile (WhatsApp)" required>
+        </div>
+        <input type="email" class="input-box" id="yourEmail" placeholder="Your email">
+
+        <div class="field-label">Your parents</div>
+        <input type="text" class="input-box" id="parentNames" placeholder="Their names, e.g. Asha and Ramesh Gup">
+        <div class="phone-row">
+          <div class="prefix-box">+91</div>
+          <input type="tel" class="input-box" id="parentPhone" placeholder="Their phone (optional)">
+        </div>
+
+        <div class="field-label">Home</div>
+        <div class="map-preview"><div class="map-pin">📍</div></div>
+        <button type="button" class="map-btn">📍 Pin the house on the map</button>
+
+        <div class="field-label">When suits you? <span style="font-weight:400;color:#8c7f79;">Optional</span></div>
+        <div class="date-scroll" id="dateScroll"><!-- JS populates dates 1–20 Nov --></div>
+
+        <div class="time-grid" id="timeGrid">
+          <div class="time-slot active" data-time="Morning">
+            <div class="time-title">Morning</div><div class="time-sub">9 AM to 12</div>
+          </div>
+          <div class="time-slot" data-time="Afternoon">
+            <div class="time-title">Afternoon</div><div class="time-sub">12 to 4 PM</div>
+          </div>
+          <div class="time-slot" data-time="Evening">
+            <div class="time-title">Evening</div><div class="time-sub">4 to 8 PM</div>
+          </div>
+        </div>
+
+        <textarea class="input-box" id="notes" rows="2" placeholder="Anything we should know? (optional)"></textarea>
+
+        <label class="terms-check">
+          <input type="checkbox" id="agreeTerms" required>
+          <span>I agree to the offer terms below and Nityaseva's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn-submit" id="payBtn">🪔 Book now, pay ₹11 later</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+
+<div class="whatsapp-contact-line">
+        Prefer to talk? <a href="https://wa.me/919239258921" target="_blank">WhatsApp us at 92392 58921</a>
+      </div>
     </div>
-
-    <div class="field-label">You</div>
-    <input type="text" class="input-box" placeholder="Your name">
-    <div class="phone-row">
-      <div class="prefix-box">+91</div>
-      <input type="tel" class="input-box" placeholder="Mobile (WhatsApp)">
-    </div>
-    <input type="email" class="input-box" placeholder="Your email">
-
-    <div class="field-label">Your parents</div>
-    <input type="text" class="input-box" placeholder="Their names, e.g. Asha and Ramesh Gup">
-    <div class="phone-row">
-      <div class="prefix-box">+91</div>
-      <input type="tel" class="input-box" placeholder="Their phone (optional)">
-    </div>
-
-    <div class="field-label">Home</div>
-    <div class="map-preview">
-      <div class="map-pin">📍</div>
-    </div>
-    <button class="map-btn">📍 Pin the house on the map</button>
-
-    <div class="field-label">When suits you? <span style="font-weight:400;color:#8c7f79;">Optional</span></div>
-    <div class="date-scroll" id="dateScroll">
-      <div class="date-pill active" data-date="1 Nov">
-        <div class="day">Sun</div><div class="num">1</div><div class="month">Nov</div>
-      </div>
-      <div class="date-pill" data-date="2 Nov">
-        <div class="day">Mon</div><div class="num">2</div><div class="month">Nov</div>
-      </div>
-      <div class="date-pill" data-date="3 Nov">
-        <div class="day">Tue</div><div class="num">3</div><div class="month">Nov</div>
-      </div>
-      <div class="date-pill" data-date="4 Nov">
-        <div class="day">Wed</div><div class="num">4</div><div class="month">Nov</div>
-      </div>
-      <div class="date-pill" data-date="5 Nov">
-        <div class="day">Thu</div><div class="num">5</div><div class="month">Nov</div>
-      </div>
-    </div>
-
-    <div class="time-grid" id="timeGrid">
-      <div class="time-slot active" data-time="Morning">
-        <div class="time-title">Morning</div>
-        <div class="time-sub">9 AM to 12</div>
-      </div>
-      <div class="time-slot" data-time="Afternoon">
-        <div class="time-title">Afternoon</div>
-        <div class="time-sub">12 to 4 PM</div>
-      </div>
-      <div class="time-slot" data-time="Evening">
-        <div class="time-title">Evening</div>
-        <div class="time-sub">4 to 8 PM</div>
-      </div>
-    </div>
-
-    <textarea class="input-box" rows="2" placeholder="Anything we should know? (optional)"></textarea>
-
-    <label class="terms-check">
-      <input type="checkbox" id="agreeTerms">
-      <span>I agree to the offer terms below and Nityaseva's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</span>
-    </label>
-
-    <button class="btn-submit" id="payBtn">🪔 Pay ₹11 and book</button>
-    <div class="trust-footer">Secure payment by Razorpay. UPI, cards or netbanking.</div>
+    <!-- end booking-card -->
   </div>
+  <!-- end hero-grid -->
 
-  <!-- ================= ONE VISIT EXPLAINED ================= -->
+  <!-- ONE VISIT EXPLAINED -->
   <div class="page-section">
     <h2 class="section-title">One visit, <span class="gold-accent">everything explained.</span></h2>
 
@@ -1073,173 +410,211 @@
     </div>
   </div>
 
-  <!-- ================= STORY SECTION ================= -->
+  <!-- STORY SECTION -->
   <div class="story-section">
     <h2 class="section-title">A Diwali gift for parents <span class="gold-accent">who live far away.</span></h2>
 
-    <p class="story-p">
-      Diwali is when we all want to be home. If you live in another city or abroad, 
-      the best gift for your parents is someone who comes to them, sits with them 
-      and makes sure they are looked after.
-    </p>
+    <div class="story-grid">
+      <div>
+        <p class="story-p">
+          Diwali is when we all want to be home. If you live in another city or abroad,
+          the best gift for your parents is someone who comes to them, sits with them
+          and makes sure they are looked after.
+        </p>
 
-    <p class="story-p">
-      This Diwali, for just ₹11, your Nityaseva city coordinator visits your parents 
-      at home. They meet them in person, explain how regular nurse visits, a doctor 
-      on call and companion visits work, and answer every question, slowly. You 
-      decide later, with no pressure.
-    </p>
+        <p class="story-p">
+          This Diwali, for just ₹11, your Nityaseva city coordinator visits your parents
+          at home. They meet them in person, explain how regular nurse visits, a doctor
+          on call and companion visits work, and answer every question, slowly. You
+          decide later, with no pressure.
+        </p>
 
-    <div class="quote-box">
-      Is Diwali, mummy papa ke liye ek pyaar bhara gift: sirf ₹11 mein hamare 
-      coordinator unke ghar aakar milenge aur sab kuch aaram se samjhayenge.
-    </div>
-
-    <div class="city-expand-list">
-      <div class="city-expand-item">
-        <h4>Lucknow</h4>
-        <p>Diwali home visits for parents across Lucknow.</p>
+        <div class="quote-box">
+          Is Diwali, mummy papa ke liye ek pyaar bhara gift: sirf ₹11 mein hamare
+          coordinator unke ghar aakar milenge aur sab kuch aaram se samjhayenge.
+        </div>
       </div>
-      <div class="city-expand-item">
-        <h4>Nagpur</h4>
-        <p>Diwali home visits for parents across Nagpur.</p>
-      </div>
-      <div class="city-expand-item">
-        <h4>Bangalore</h4>
-        <p>Diwali home visits for parents across Bangalore.</p>
+
+      <div class="city-expand-list">
+        <div class="city-expand-item">
+          <h4>Asansol</h4>
+          <p>Diwali home visits for parents across Asansol.</p>
+        </div>
+        <div class="city-expand-item">
+          <h4>Burnpur</h4>
+          <p>Diwali home visits for parents across Burnpur.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= FAQ SECTION ================= -->
+  <!-- FAQ SECTION -->
   <div class="page-section">
-    <h2 class="section-title">Questions, <span class="gold-accent">answered.</span></h2>
+    <div class="faq-section-wrap">
+      <h2 class="section-title">Questions, <span class="gold-accent">answered.</span></h2>
 
-    <div class="faq-list" id="faqList">
+      <div class="faq-list" id="faqList">
 
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">What happens at the visit?</div>
-          <div class="faq-toggle-btn">+</div>
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">What happens at the visit?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Your city coordinator comes to your parents' home, introduces themself, and explains how Nityaseva works — regular nurse visits, doctor on call and companion visits. They answer every question your parents may have, with no pressure to buy anything.</p>
+          </div>
         </div>
-        <div class="faq-answer">
-          <p>Your city coordinator comes to your parents' home, introduces themself, and explains how Nityaseva works — regular nurse visits, doctor on call and companion visits. They answer every question your parents may have, with no pressure to buy anything.</p>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">Why only ₹11?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>It is our Diwali shagun. The ₹11 holds your slot and tells us you really want the visit, so our coordinators' time goes to families who are expecting them.</p>
+          </div>
         </div>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">How do the 25 slots work?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Each city has 25 slots. They go to the first 25 bookings in the order they arrive. Once filled, a city's slots are closed for this offer.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">When will the coordinator come?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>After you book, your city coordinator will call you within 24–48 hours to confirm a time that works for your parents, any time between 1 and 20 November.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">What is a good Diwali gift for elderly parents?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>The best gift is often time and attention — someone visiting them, checking on their health, and being available when needed. A Nityaseva home visit gives your parents exactly that, explained in person.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">Diwali par mummy papa ke liye kya gift dein?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Is Diwali, mummy papa ko ek visit gift kijiye. Hamare city coordinator Asansol ya Burnpur mein unke ghar aakar milenge, sab kuch aaram se samjhayenge aur unke saare sawaalon ka jawab denge.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header">
+            <div class="faq-question">Can I book for both my parents, or for more than one home?</div>
+            <div class="faq-toggle-btn">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. One booking covers one home visit at one address. You can make more than one booking if you'd like visits at different homes.</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">Why only ₹11?</div>
-          <div class="faq-toggle-btn">+</div>
-        </div>
-        <div class="faq-answer">
-          <p>₹11 is a small token to confirm your booking and prevent no-shows, so our coordinators can plan their day efficiently and give your parents proper time and attention.</p>
-        </div>
+      <!-- OFFER TERMS -->
+      <div class="offer-terms-box">
+        <div class="offer-terms-title">Offer terms</div>
+        <p>Bookings are open until 20 November 2026 (IST), in Asansol and Burnpur. Visits happen between 1 and 20 November.</p>
+        <p>Each city has 25 slots. They go to the first 25 bookings in the order they arrive.</p>
+        <p>One booking is one home visit at one address. Anyone can book, and you can make more than one booking.</p>
+        <p>Your city coordinator calls you to fix a time for the visit.</p>
       </div>
-
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">How do the 25 slots work?</div>
-          <div class="faq-toggle-btn">+</div>
-        </div>
-        <div class="faq-answer">
-          <p>Each city has 25 slots. They go to the first 25 bookings whose ₹11 payment comes through, in the order the payments arrive. Once filled, a city's slots are closed for this offer.</p>
-        </div>
-      </div>
-
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">When will the coordinator come?</div>
-          <div class="faq-toggle-btn">+</div>
-        </div>
-        <div class="faq-answer">
-          <p>After you book, your city coordinator will call you within 24–48 hours to confirm a time that works for your parents, any time between 1 and 20 November.</p>
-        </div>
-      </div>
-
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">What is a good Diwali gift for elderly parents?</div>
-          <div class="faq-toggle-btn">+</div>
-        </div>
-        <div class="faq-answer">
-          <p>The best gift is often time and attention — someone visiting them, checking on their health, and being available when needed. A Nityaseva home visit gives your parents exactly that, explained in person.</p>
-        </div>
-      </div>
-
-      <div class="faq-card open">
-        <div class="faq-header">
-          <div class="faq-question">Diwali par mummy papa ke liye kya gift dein?</div>
-          <div class="faq-toggle-btn">×</div>
-        </div>
-        <div class="faq-answer">
-          <p>Is Diwali, mummy papa ko ek visit gift kijiye. Sirf ₹11 mein Nityaseva ke city coordinator Lucknow, Nagpur ya Bangalore mein unke ghar aakar milenge, sab kuch aaram se samjhayenge aur unke saare sawaalon ka jawab denge.</p>
-        </div>
-      </div>
-
-      <div class="faq-card">
-        <div class="faq-header">
-          <div class="faq-question">Can I book for both my parents, or for more than one home?</div>
-          <div class="faq-toggle-btn">+</div>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. One booking covers one home visit at one address. You can make more than one booking if you'd like visits at different homes, each for ₹11.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ================= OFFER TERMS ================= -->
-    <div class="offer-terms-box">
-      <div class="offer-terms-title">Offer terms</div>
-      <p>Bookings are open until 20 November 2026 (IST), in Lucknow, Nagpur and Bangalore. Visits happen between 1 and 20 November.</p>
-      <p>Each city has 25 slots. They go to the first 25 bookings whose payment of ₹11 comes through, in the order the payments arrive.</p>
-      <p>The ₹11 is not refundable, including when a payment arrives after a city's slots have filled.</p>
-      <p>One booking is one home visit at one address. Anyone can book, and you can make more than one booking.</p>
-      <p>Your city coordinator calls you to fix a time for the visit.</p>
     </div>
   </div>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <div class="footer-brand">
     <img src="nityaseva-logo.png" alt="Nityaseva Logo" class="footer-logo">
     <div class="footer-tagline">Eternal service, Timeless care.</div>
   </div>
 
-    <div class="footer-links">
+  <div class="footer-links">
     <a href="#" class="footer-pill">Home</a>
     <a href="#plans" class="footer-pill">Plans</a>
     <a href="#terms" class="footer-pill">Terms</a>
     <a href="#privacy" class="footer-pill">Privacy</a>
   </div>
 
-  <a href="https://wa.me/910000000000" class="footer-whatsapp">WhatsApp us</a>
+  <a href="https://wa.me/919239258921" target="_blank" class="footer-whatsapp">💬 WhatsApp us: 92392 58921</a>
 
   <div class="footer-copy">
     © 2026 Nityaseva Health Services Pvt. Ltd. Shubh Deepavali.
   </div>
 
-  <!-- Decorative floating button -->
-  <div class="float-dropper">🖊️</div>
-
 </div>
+<!-- end page-wrap -->
 
 <script>
+  // ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+  const SCRIPT_URL = "YOUR_SCRIPT_URL_HERE";
+
+  let selectedCity = "Asansol";
+  let selectedDate = "";
+  let selectedTime = "Morning";
+
+  // ============ BUILD DATE PILLS: 1 Nov to 20 Nov ============
+  const dateScroll = document.getElementById('dateScroll');
+  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  // 1 Nov 2026 falls on a Sunday — adjust if your actual year differs
+  const startDate = new Date(2026, 10, 1); // month is 0-indexed -> 10 = November
+
+  for (let i = 0; i < 20; i++) {
+    const d = new Date(startDate);
+    d.setDate(startDate.getDate() + i);
+
+    const dayLabel = dayNames[d.getDay()];
+    const dateNum = d.getDate();
+    const monthLabel = 'Nov';
+
+    const pill = document.createElement('div');
+    pill.className = 'date-pill' + (i === 0 ? ' active' : '');
+    pill.setAttribute('data-date', `${dateNum} Nov`);
+    pill.innerHTML = `
+      <div class="day">${dayLabel}</div>
+      <div class="num">${dateNum}</div>
+      <div class="month">${monthLabel}</div>
+    `;
+    dateScroll.appendChild(pill);
+  }
+
+  selectedDate = dateScroll.querySelector('.date-pill.active').getAttribute('data-date');
+
+  // Re-bind click events after dynamic creation
+  function bindDatePills() {
+    const datePills = document.querySelectorAll('.date-pill');
+    datePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        datePills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        selectedDate = pill.getAttribute('data-date');
+      });
+    });
+  }
+  bindDatePills();
+
   // ============ CITY SELECTOR ============
   const cityButtons = document.querySelectorAll('.city-btn');
   cityButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       cityButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-    });
-  });
-
-  // ============ DATE SELECTOR ============
-  const datePills = document.querySelectorAll('.date-pill');
-  datePills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      datePills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+      selectedCity = btn.getAttribute('data-city');
     });
   });
 
@@ -1249,6 +624,7 @@
     slot.addEventListener('click', () => {
       timeSlots.forEach(s => s.classList.remove('active'));
       slot.classList.add('active');
+      selectedTime = slot.getAttribute('data-time');
     });
   });
 
@@ -1260,13 +636,10 @@
 
     header.addEventListener('click', () => {
       const isOpen = card.classList.contains('open');
-
-      // Close all other FAQs (accordion behavior)
       faqCards.forEach(c => {
         c.classList.remove('open');
         c.querySelector('.faq-toggle-btn').textContent = '+';
       });
-
       if (!isOpen) {
         card.classList.add('open');
         toggleBtn.textContent = '×';
@@ -1274,14 +647,97 @@
     });
   });
 
-  // ============ PAY BUTTON VALIDATION ============
-  document.getElementById('payBtn').addEventListener('click', () => {
+  // ============ MAP PIN BUTTON ============
+  document.querySelector('.map-btn').addEventListener('click', () => {
+    alert('Opening map to pin the exact home location...');
+  });
+
+  // ============ FORM SUBMISSION TO GOOGLE SHEETS ============
+  const bookingForm = document.getElementById('bookingForm');
+  const formStatus = document.getElementById('formStatus');
+  const payBtn = document.getElementById('payBtn');
+
+  bookingForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
     const agree = document.getElementById('agreeTerms').checked;
     if (!agree) {
-      alert('Please agree to the offer terms before proceeding.');
+      formStatus.className = 'form-status error';
+      formStatus.textContent = 'Please agree to the offer terms before proceeding.';
       return;
     }
-    alert('Redirecting to secure payment gateway... (Razorpay integration goes here)');
+
+    const name = document.getElementById('yourName').value.trim();
+    const phone = document.getElementById('yourPhone').value.trim();
+    const email = document.getElementById('yourEmail').value.trim();
+    const parentNames = document.getElementById('parentNames').value.trim();
+    const parentPhone = document.getElementById('parentPhone').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+
+    if (!name || !phone) {
+      formStatus.className = 'form-status error';
+      formStatus.textContent = 'Please fill in your name and phone number.';
+      return;
+    }
+
+    payBtn.disabled = true;
+    payBtn.textContent = 'Submitting...';
+    formStatus.className = 'form-status loading';
+    formStatus.textContent = 'Submitting your booking...';
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('parentNames', parentNames);
+    formData.append('parentPhone', parentPhone);
+    formData.append('city', selectedCity);
+    formData.append('date', selectedDate);
+    formData.append('time', selectedTime);
+    formData.append('notes', notes);
+
+    fetch(SCRIPT_URL, { method: 'POST', body: formData })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === 'success') {
+          formStatus.className = 'form-status success';
+          formStatus.textContent = '✅ Booking received! We will contact you on WhatsApp soon.';
+          bookingForm.reset();
+
+          cityButtons.forEach(b => b.classList.remove('active'));
+          cityButtons[0].classList.add('active');
+          selectedCity = "Asansol";
+
+          const datePills = document.querySelectorAll('.date-pill');
+          datePills.forEach(p => p.classList.remove('active'));
+          datePills[0].classList.add('active');
+          selectedDate = datePills[0].getAttribute('data-date');
+
+          timeSlots.forEach(s => s.classList.remove('active'));
+          timeSlots[0].classList.add('active');
+          selectedTime = "Morning";
+
+          payBtn.textContent = '🪔 Book now, pay ₹11 later';
+          payBtn.disabled = false;
+
+          setTimeout(() => {
+            window.open(
+              `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
+              '_blank'
+            );
+          }, 1500);
+
+        } else {
+          throw new Error(data.error || 'Unknown error');
+        }
+      })
+      .catch(error => {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = '❌ Something went wrong. Please try again or WhatsApp us directly.';
+        payBtn.textContent = '🪔 Book now, pay ₹11 later';
+        payBtn.disabled = false;
+        console.error('Submission error:', error);
+      });
   });
 
   // ============ SMOOTH SCROLL FOR NAV LINKS ============
@@ -1294,11 +750,6 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
-  });
-
-  // ============ MAP PIN BUTTON (placeholder interaction) ============
-  document.querySelector('.map-btn').addEventListener('click', () => {
-    alert('Opening map to pin the exact home location...');
   });
 </script>
 
