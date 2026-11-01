@@ -21,9 +21,25 @@
     --form-bg:#fffbf2; --form-input-bg:#f4ecdf; --form-border:#eedec7;
   }
   *{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent;}
-  body{background:var(--bg-dark);color:var(--text-white);display:flex;justify-content:center;min-height:100vh;overflow-x:hidden;}
+body{
+  background:var(--bg-dark);
+  color:var(--text-white);
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
+  overflow-x:hidden;   /* already there, good */
+}
 
-  .page-wrap{width:100%;max-width:480px;min-height:100vh;
+.page-wrap{
+  width:100%;
+  max-width:480px;
+  min-height:100vh;
+  overflow-x:hidden;   /* 👈 ADD THIS too, as extra safety */
+  background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
+  padding:16px 20px 48px;
+  position:relative;
+}
+
     background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
     padding:16px 20px 48px;position:relative;}
 
