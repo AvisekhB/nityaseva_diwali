@@ -21,7 +21,8 @@
   body{background:var(--bg-dark);color:var(--text-white);display:flex;justify-content:center;min-height:100vh;overflow-x:hidden;}
 
   .page-wrap{
-    width:100%;max-width:480px;min-height:100vh;overflow-x:hidden;
+    width:100%;max-width:480px;min-height:100vh;
+    overflow-x:clip; /* clip (not hidden) so position:sticky keeps working */
     background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
     padding:16px 20px 48px;position:relative;
   }
@@ -29,7 +30,7 @@
 
   /* NAVBAR */
   .navbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 16px;
-    position:sticky;top:0;z-index:50;background:inherit;}
+    position:sticky;top:0;z-index:50;background:#190c1e;}
   .brand-wrap{display:flex;align-items:center;gap:10px;}
   .brand-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.35);flex-shrink:0;}
   .brand-text{display:flex;flex-direction:column;line-height:1.1;}
@@ -53,11 +54,11 @@
   .lantern:nth-child(4) .lantern-body{background:#ff5e36;height:30px;}
   .lantern:nth-child(5) .lantern-body{background:#3ec6e0;}
 
-  /* HERO GRID */
+  /* HERO GRID: hero text LEFT, booking form RIGHT on desktop */
   .hero-grid{display:block;}
   @media (min-width:901px){
     .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:48px;align-items:start;}
-    .hero-grid > *{ min-width: 0; }
+    .hero-grid > *{ min-width:0; }
   }
   .hero{text-align:center;padding:4px 0 24px;}
   @media (min-width:901px){ .hero{text-align:left;padding-top:20px;} }
@@ -100,7 +101,6 @@
   @keyframes flicker{0%,100%{ opacity:1; transform:scale(1); }50%{ opacity:.75; transform:scale(.92); }}
 
   .scene-coordinator{display:flex;flex-direction:column;align-items:center;position:relative;}
-  .scene-coordinator{display:flex;flex-direction:column;align-items:center;position:relative;}
   .speech-bubble{background:#fff;color:#190c1e;font-size:.78rem;font-weight:700;padding:8px 14px;
     border-radius:999px;margin-bottom:8px;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.25);white-space:nowrap;}
   .speech-bubble::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
@@ -113,10 +113,10 @@
   /* BOOKING CARD */
   .booking-card{background:var(--form-bg);color:var(--text-dark);border-radius:28px;padding:24px 20px;
     box-shadow:0 16px 36px rgba(0,0,0,.45);margin:20px 0 40px;position:relative;}
-  @media (min-width:901px){ 
-    .booking-card{margin:0;position:sticky;top:20px;max-height: calc(100vh - 40px);
-      overflow-y: auto;scrollbar-width: none;-ms-overflow-style: none;}
-    .booking-card::-webkit-scrollbar{ display: none; }
+  @media (min-width:901px){
+    .booking-card{margin:0;position:sticky;top:90px;max-height:calc(100vh - 110px);
+      overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;}
+    .booking-card::-webkit-scrollbar{ display:none; }
   }
   .booking-card::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;border-radius:28px 28px 0 0;
     background:repeating-linear-gradient(45deg,#f5a623,#f5a623 10px,#e74c3c 10px,#e74c3c 20px);}
@@ -126,7 +126,7 @@
   .live-slots-badge{font-size:.75rem;color:#d93d3d;font-weight:700;display:flex;align-items:center;gap:5px;}
 
   .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
-  .city-grid > .city-btn{ min-width: 0; }
+  .city-grid > .city-btn{ min-width:0; }
   .city-btn{background:#f4ecdf;border:1.5px solid transparent;border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s;}
   .city-btn.active{background:#fff;border-color:#231815;box-shadow:0 4px 10px rgba(0,0,0,.06);}
   .city-name{font-size:.88rem;font-weight:700;color:#241a18;margin-bottom:4px;}
@@ -152,7 +152,7 @@
     padding:13px 14px;font-size:.9rem;font-weight:700;color:#241a18;width:60px;display:flex;align-items:center;justify-content:center;}
   .phone-row .input-box{margin-bottom:0;flex:1;}
 
-  /* MAP PREVIEW - functional */
+  /* MAP PREVIEW */
   .map-preview{width:100%;height:160px;background:#e4e0d7;border-radius:18px;margin-top:6px;margin-bottom:16px;
     position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;
     background-image:radial-gradient(#cfc9ba 20%,transparent 20%),
@@ -160,8 +160,8 @@
       linear-gradient(to bottom,#ded8ca 2px,transparent 2px);
     background-size:24px 24px,40px 40px,40px 40px;}
   .map-pin{position:absolute;top:36%;left:50%;transform:translate(-50%,-50%);font-size:1.8rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));
-    transition: all 0.3s ease;}
-  .map-pin.located{ color:#1a7a3c; animation: dropPin 0.4s ease; }
+    transition:all .3s ease;}
+  .map-pin.located{ color:#1a7a3c; animation:dropPin .4s ease; }
   @keyframes dropPin{ 0%{ transform:translate(-50%,-100%); opacity:0; } 100%{ transform:translate(-50%,-50%); opacity:1; } }
   .map-coords-display{position:absolute; bottom:8px; left:8px; right:8px;
     background:rgba(255,255,255,.9); border-radius:8px; padding:4px 8px;
@@ -282,7 +282,7 @@
   <!-- NAVBAR -->
   <div class="navbar">
     <div class="brand-wrap">
-      <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp" 
+      <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp"
            alt="Nityaseva Logo" class="brand-logo">
       <div class="brand-text">
         <span class="name">NITYASEVA</span>
@@ -303,9 +303,10 @@
     <div class="lantern"><div class="lantern-line"></div><div class="lantern-body"></div></div>
   </div>
 
-  <!-- HERO + BOOKING FORM -->
+  <!-- HERO + BOOKING FORM (two columns on desktop) -->
   <div class="hero-grid">
 
+    <!-- LEFT: hero text -->
     <div class="hero">
       <div class="badge-pill">🪔 Diwali offer · Visits 1 to 20 November</div>
       <h1 class="hero-title">Ye Diwali,<span class="gold-text">₹11 Waali</span></h1>
@@ -349,8 +350,9 @@
         </div>
       </div>
     </div>
-</div>
-    <!-- BOOKING CARD -->
+    <!-- end hero -->
+
+    <!-- RIGHT: booking card -->
     <div class="booking-card" id="book">
       <h2 class="booking-title">Book your ₹11 visit</h2>
       <p class="booking-sub">Only 25 slots in each city. We share your details only with your city coordinator.</p>
@@ -375,17 +377,13 @@
         <div class="banner-top">
           <div class="banner-icon">📍</div>
           <div class="banner-text">
-      <div class="banner-box">
-        <div class="banner-top">
-          <div class="banner-icon">📍</div>
-          <div class="banner-text">
             <h4>City not listed?</h4>
             <p>We'll tell you when we come to your parents' city.</p>
           </div>
         </div>
         <a href="https://wa.me/919239258921?text=Hi%2C%20my%20parents%27%20city%20is%20not%20listed%20on%20Nityaseva.%20Please%20let%20me%20know%20when%20you%20launch%20there." target="_blank" class="btn-dark-full">Show interest →</a>
       </div>
-</div>
+
       <form id="bookingForm">
         <div class="field-label">You</div>
         <input type="text" class="input-box" id="yourName" placeholder="Your name" required>
@@ -441,27 +439,14 @@
       <div class="whatsapp-contact-line">
         Prefer to talk? <a href="https://wa.me/919239258921" target="_blank">WhatsApp us at 92392 58921</a>
       </div>
-    
-          
+    </div>
     <!-- end booking-card -->
+
   </div>
   <!-- end hero-grid -->
-</div>
-</div></div>
 
-
-
-
-
-
-
-
-
-
-
-      
   <!-- ONE VISIT EXPLAINED -->
-  <div class="page-section">
+  <div class="page-section" id="plans">
     <h2 class="section-title">One visit, <span class="gold-accent">everything explained.</span></h2>
 
     <div class="steps-grid">
@@ -490,18 +475,7 @@
         <div class="step-desc">Ask anything. Start a plan only if it feels right.</div>
       </div>
     </div>
-  
-      
-
-
-
-
-
-
-
-
-
-  
+  </div>
 
   <!-- STORY SECTION -->
   <div class="story-section">
@@ -633,7 +607,7 @@
 
   <!-- FOOTER -->
   <div class="footer-brand">
-    <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp" 
+    <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp"
          alt="Nityaseva Logo" class="footer-logo">
     <div class="footer-tagline">Eternal service, Timeless care.</div>
   </div>
@@ -658,7 +632,7 @@
 <iframe name="hiddenSubmitFrame" id="hiddenSubmitFrame" style="display:none;"></iframe>
 
 <script>
-  // ⚠️ YOUR GOOGLE APPS SCRIPT WEB APP URL
+  // YOUR GOOGLE APPS SCRIPT WEB APP URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw1Rv-sl7ikt2JWlIEqwaEqC4ss3Ngug_vCFJEaTBpdvJ1ll1tuevPgkUp-brUKnuK9WQ/exec";
 
   let selectedCity = "Asansol";
@@ -741,7 +715,7 @@
     });
   });
 
-  // ============ REAL WORKING MAP / GEOLOCATION BUTTON ============
+  // ============ GEOLOCATION BUTTON ============
   const mapBtn = document.getElementById('mapBtn');
   const mapPin = document.getElementById('mapPin');
   const mapCoords = document.getElementById('mapCoords');
@@ -825,6 +799,7 @@
     const lat = latField.value;
     const lng = lngField.value;
     const address = addressField.value;
+    const bookedCity = selectedCity; // remember before the form resets
 
     if (!name || !phone) {
       formStatus.className = 'form-status error';
@@ -847,11 +822,6 @@
       name: name, phone: phone, email: email,
       parentNames: parentNames, parentPhone: parentPhone,
       city: selectedCity, date: selectedDate, time: selectedTime,
-      notes: notes, lat: lat, lng: lng,
-    const fields = {
-      name: name, phone: phone, email: email,
-      parentNames: parentNames, parentPhone: parentPhone,
-      city: selectedCity, date: selectedDate, time: selectedTime,
       notes: notes, lat: lat, lng: lng, address: address
     };
 
@@ -864,6 +834,15 @@
     }
 
     document.body.appendChild(tempForm);
+
+    const openWhatsApp = (delay) => {
+      setTimeout(() => {
+        window.open(
+          `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(bookedCity)}`,
+          '_blank'
+        );
+      }, delay);
+    };
 
     let responded = false;
     hiddenFrame.onload = function () {
@@ -903,12 +882,7 @@
         document.body.removeChild(tempForm);
       }
 
-      setTimeout(() => {
-        window.open(
-          `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
-          '_blank'
-        );
-      }, 1500);
+      openWhatsApp(1500);
     };
 
     tempForm.submit();
@@ -926,12 +900,7 @@
           document.body.removeChild(tempForm);
         }
 
-        setTimeout(() => {
-          window.open(
-            `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
-            '_blank'
-          );
-        }, 500);
+        openWhatsApp(500);
       }
     }, 8000);
   });
@@ -940,6 +909,7 @@
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
+      if (targetId.length < 2) return;
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
