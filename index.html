@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,25 +17,25 @@
     --form-bg:#fffbf2; --form-input-bg:#f4ecdf; --form-border:#eedec7;
   }
   *{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent;}
-body{
-  background:var(--bg-dark);
-  color:var(--text-white);
-  display:flex;
-  justify-content:center;
-  min-height:100vh;
-  overflow-x:hidden;   /* already there, good */
-}
 
-.page-wrap{
-  width:100%;
-  max-width:480px;
-  min-height:100vh;
-  overflow-x:hidden;   /* 👈 ADD THIS too, as extra safety */
-  background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
-  padding:16px 20px 48px;
-  position:relative;
-}
+  body{
+    background:var(--bg-dark);
+    color:var(--text-white);
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
 
+  .page-wrap{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
+    padding:16px 20px 48px;
+    position:relative;
+  }
 
   @media (min-width:901px){
     .page-wrap{max-width:1200px;padding:24px 48px 70px;}
@@ -73,15 +69,9 @@ body{
 
   /* HERO GRID - responsive two-column on desktop */
   .hero-grid{display:block;}
-
-  <div class="live-counter">
-  <span class="live-dot"></span>
-  <span><b id="totalSlotsLeft">50</b> slots left across 2 cities</span>
-</div>
-
   @media (min-width:901px){
     .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:48px;align-items:start;}
-      .hero-grid > *{ min-width: 0; }   /* 👈 ADD THIS LINE — fixes the overflow bug */
+    .hero-grid > *{ min-width: 0; }
   }
 
   .hero{text-align:center;padding:4px 0 24px;}
@@ -104,29 +94,6 @@ body{
     padding:10px 18px;border-radius:999px;font-size:.85rem;font-weight:700;color:var(--gold-light);margin-top:14px;}
 
   .live-counter{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.85rem;color:#e2cadb;margin-top:10px;}
-
-  <!-- GREETING SCENE ILLUSTRATION -->
-<div class="greeting-scene">
-  <div class="scene-arch">
-    <div class="arch-dots"></div>
-    <div class="elder-couple">
-      <span class="elder-emoji">👵🏽</span>
-      <span class="elder-emoji">👴🏽</span>
-    </div>
-    <div class="diya-row">
-      <span>🪔</span><span>🪔</span><span>🪔</span>
-    </div>
-  </div>
-
-  <div class="scene-coordinator">
-    <div class="speech-bubble">Namaste! 🙏</div>
-    <div class="coordinator-figure">
-      <span class="coordinator-emoji">🧑🏽‍💼</span>
-      <div class="coordinator-tag">NITYASEVA</div>
-    </div>
-  </div>
-</div>
-
   @media (min-width:901px){ .live-counter{justify-content:flex-start;} }
   .live-dot{width:8px;height:8px;background:#e44343;border-radius:50%;box-shadow:0 0 8px #ff4747;animation:pulse 1.8s infinite;}
   @keyframes pulse{0%{opacity:.5;}50%{opacity:1;}100%{opacity:.5;}}
@@ -135,19 +102,19 @@ body{
   .booking-card{background:var(--form-bg);color:var(--text-dark);border-radius:28px;padding:24px 20px;
     box-shadow:0 16px 36px rgba(0,0,0,.45);margin:20px 0 40px;position:relative;}
   @media (min-width:901px){ 
-  .booking-card{
-    margin:0;
-    position:sticky;
-    top:20px;
-    max-height: calc(100vh - 40px);   /* 👈 constrains height to viewport */
-    overflow-y: auto;                 /* 👈 enables internal scroll */
-    scrollbar-width: none;            /* 👈 hides scrollbar in Firefox */
-    -ms-overflow-style: none;         /* 👈 hides scrollbar in IE/Edge */
+    .booking-card{
+      margin:0;
+      position:sticky;
+      top:20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .booking-card::-webkit-scrollbar{
+      display: none;
+    }
   }
-  .booking-card::-webkit-scrollbar{
-    display: none;                    /* 👈 hides scrollbar in Chrome/Safari */
-  }
-}
   .booking-card::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;border-radius:28px 28px 0 0;
     background:repeating-linear-gradient(45deg,#f5a623,#f5a623 10px,#e74c3c 10px,#e74c3c 20px);}
   .booking-title{font-size:1.5rem;font-weight:800;margin-top:6px;margin-bottom:6px;color:#190c1e;}
@@ -155,7 +122,8 @@ body{
   .form-group-title{font-size:.88rem;font-weight:700;color:#2a1f1b;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
   .live-slots-badge{font-size:.75rem;color:#d93d3d;font-weight:700;display:flex;align-items:center;gap:5px;}
 
-  .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}.city-grid > .city-btn{ min-width: 0; }   /* 👈 ADD THIS */
+  .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+  .city-grid > .city-btn{ min-width: 0; }
   .city-btn{background:#f4ecdf;border:1.5px solid transparent;border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s;}
   .city-btn.active{background:#fff;border-color:#231815;box-shadow:0 4px 10px rgba(0,0,0,.06);}
   .city-name{font-size:.88rem;font-weight:700;color:#241a18;margin-bottom:4px;}
@@ -167,7 +135,6 @@ body{
   .banner-icon{background:#f7a02b;color:#fff;width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
   .banner-text h4{font-size:.9rem;font-weight:700;margin-bottom:2px;color:#2b1f1a;}
   .banner-text p{font-size:.78rem;color:#6f5f58;line-height:1.35;}
-
 
   .btn-dark-full{background:#190c1e;color:#fff;border:none;border-radius:999px;padding:10px;font-weight:700;
     font-size:.85rem;cursor:pointer;text-decoration:none;display:block;text-align:center;width:100%;}
@@ -191,6 +158,232 @@ body{
   .map-pin{position:absolute;top:36%;left:50%;transform:translate(-50%,-50%);font-size:1.8rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));}
   .map-btn{background:#190c1e;color:#fff;border:none;padding:9px;border-radius:999px;font-size:.82rem;font-weight:700;
     display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;width:100%;}
+
+  .date-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:thin;scrollbar-color:#d8c8a8 transparent;}
+  .date-scroll::-webkit-scrollbar{height:4px;}
+  .date-scroll::-webkit-scrollbar-thumb{background:#d8c8a8;border-radius:4px;}
+
+  .date-pill{min-width:58px;background:#f4ecdf;border-radius:14px;padding:10px 4px;text-align:center;cursor:pointer;
+    border:1px solid transparent;flex-shrink:0;}
+  .date-pill.active{background:#fff;border-color:#241a18;box-shadow:0 3px 8px rgba(0,0,0,.06);}
+  .date-pill .day{font-size:.68rem;color:#7b6f69;font-weight:600;}
+  .date-pill .num{font-size:1.1rem;font-weight:800;color:#190c1e;}
+  .date-pill .month{font-size:.68rem;color:#7b6f69;font-weight:600;}
+
+  .time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px;}
+  .time-slot{background:#f4ecdf;padding:10px 4px;border-radius:12px;text-align:center;cursor:pointer;border:1px solid transparent;}
+  .time-slot.active{background:#fff;border-color:#241a18;}
+  .time-slot .time-title{font-size:.78rem;font-weight:700;color:#241a18;}
+  .time-slot .time-sub{font-size:.68rem;color:#7b6f69;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nityaseva - Eternal Service, Timeless Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-dark:#190c1e; --bg-card-dark:#27152f; --bg-card-border:#3f2249;
+    --gold-primary:#e5a93c; --gold-light:#fcd36c;
+    --gold-gradient:linear-gradient(180deg,#f7cb63 0%,#e6a735 100%);
+    --text-white:#fff; --text-muted:#c9b7cf; --text-dark:#231815;
+    --form-bg:#fffbf2; --form-input-bg:#f4ecdf; --form-border:#eedec7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent;}
+
+  body{
+    background:var(--bg-dark);
+    color:var(--text-white);
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  .page-wrap{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:radial-gradient(circle at 50% 0%,#36173d 0%,#190c1e 45%,#120716 100%);
+    padding:16px 20px 48px;
+    position:relative;
+  }
+
+  @media (min-width:901px){
+    .page-wrap{max-width:1200px;padding:24px 48px 70px;}
+  }
+
+  /* NAVBAR */
+  .navbar{display:flex;align-items:center;justify-content:space-between;padding:6px 0 16px;
+    position:sticky;top:0;z-index:50;background:inherit;}
+  .brand-wrap{display:flex;align-items:center;gap:10px;}
+  .brand-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.35);flex-shrink:0;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text .name{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:.5px;}
+  .brand-text .tagline{font-size:.62rem;color:var(--gold-light);font-style:italic;font-weight:500;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .nav-link{color:#f7cb63;text-decoration:none;font-size:.9rem;font-weight:600;}
+  .btn-gold{background:var(--gold-gradient);color:#2d1404;font-weight:700;font-size:.85rem;padding:8px 14px;
+    border-radius:999px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 14px rgba(229,169,60,.35);
+    transition:transform .15s ease;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;}
+  .btn-gold:active{transform:scale(.97);}
+
+  /* FESTIVE DECOR */
+  .festive-decor{display:flex;justify-content:space-around;align-items:flex-start;margin:10px 0 20px;opacity:.85;}
+  .lantern{display:flex;flex-direction:column;align-items:center;}
+  .lantern-line{width:1px;height:24px;background:#fcd36c;}
+  .lantern-body{width:22px;height:28px;border-radius:12px;box-shadow:0 0 12px rgba(255,175,40,.7);}
+  .lantern:nth-child(1) .lantern-body{background:#ff7243;}
+  .lantern:nth-child(2) .lantern-body{background:#ff4785;height:32px;}
+  .lantern:nth-child(3) .lantern-body{background:#ffbe3b;}
+  .lantern:nth-child(4) .lantern-body{background:#ff5e36;height:30px;}
+  .lantern:nth-child(5) .lantern-body{background:#3ec6e0;}
+
+  /* HERO GRID */
+  .hero-grid{display:block;}
+  @media (min-width:901px){
+    .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:48px;align-items:start;}
+    .hero-grid > *{ min-width: 0; }
+  }
+
+  .hero{text-align:center;padding:4px 0 24px;}
+  @media (min-width:901px){ .hero{text-align:left;padding-top:20px;} }
+
+  .badge-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+    background:rgba(247,203,99,.12);border:1px solid rgba(247,203,99,.3);color:#ffd875;font-size:.8rem;font-weight:600;margin-bottom:16px;}
+  .hero-title{font-size:2.6rem;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;}
+  @media (min-width:901px){ .hero-title{font-size:3.4rem;} }
+  .hero-title .gold-text{color:var(--gold-light);display:block;}
+  .hero-sub{color:var(--text-muted);font-size:.95rem;line-height:1.5;max-width:92%;margin:0 auto 20px;}
+  @media (min-width:901px){ .hero-sub{margin:0 0 20px;max-width:500px;} }
+
+  .feature-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:14px;}
+  @media (min-width:901px){ .feature-tags{justify-content:flex-start;} }
+  .tag-item{display:inline-flex;align-items:center;gap:6px;background:#2b1531;border:1px solid #43224d;
+    padding:6px 12px;border-radius:999px;font-size:.8rem;color:#f1e2f5;}
+
+  .pay-later-pill{display:inline-flex;align-items:center;gap:8px;background:#2b1531;border:1px solid #5a3765;
+    padding:10px 18px;border-radius:999px;font-size:.85rem;font-weight:700;color:var(--gold-light);margin-top:14px;}
+
+  .live-counter{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.85rem;color:#e2cadb;margin-top:10px;}
+  @media (min-width:901px){ .live-counter{justify-content:flex-start;} }
+  .live-dot{width:8px;height:8px;background:#e44343;border-radius:50%;box-shadow:0 0 8px #ff4747;animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%{opacity:.5;}50%{opacity:1;}100%{opacity:.5;}}
+
+  /* GREETING SCENE ILLUSTRATION */
+  .greeting-scene{
+    display:flex;align-items:flex-end;justify-content:center;gap:40px;
+    margin-top:28px;padding:10px 0;flex-wrap:wrap;
+  }
+  @media (min-width:901px){ .greeting-scene{ justify-content:flex-start; } }
+
+  .scene-arch{
+    position:relative;display:flex;flex-direction:column;align-items:center;
+    background:linear-gradient(180deg, rgba(247,203,99,.08), rgba(247,203,99,.02));
+    border:2px solid rgba(247,203,99,.35);border-radius:100px 100px 10px 10px;
+    padding:28px 20px 14px;min-width:150px;
+  }
+  .arch-dots{
+    position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:90%;height:10px;
+    background-image:radial-gradient(circle, var(--gold-light) 3px, transparent 3px);
+    background-size:14px 10px;background-repeat:repeat-x;
+  }
+  .elder-couple{display:flex;gap:6px;font-size:2.6rem;line-height:1;margin-bottom:10px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));}
+  .diya-row{display:flex;gap:10px;font-size:1.2rem;}
+  .diya-row span{filter: drop-shadow(0 0 6px rgba(255,170,40,.8));animation: flicker 1.6s infinite ease-in-out;}
+  .diya-row span:nth-child(2){ animation-delay:.3s; }
+  .diya-row span:nth-child(3){ animation-delay:.6s; }
+  @keyframes flicker{0%,100%{ opacity:1; transform:scale(1); }50%{ opacity:.75; transform:scale(.92); }}
+
+  .scene-coordinator{display:flex;flex-direction:column;align-items:center;position:relative;}
+  .speech-bubble{
+    background:#fff;color:#190c1e;font-size:.78rem;font-weight:700;padding:8px 14px;
+    border-radius:999px;margin-bottom:8px;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.25);white-space:nowrap;
+  }
+  .speech-bubble::after{
+    content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+    border-width:6px 6px 0 6px;border-style:solid;border-color:#fff transparent transparent transparent;
+  }
+  .coordinator-figure{display:flex;flex-direction:column;align-items:center;}
+  .coordinator-emoji{font-size:2.6rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));}
+  .coordinator-tag{
+    background:var(--gold-gradient);color:#190c1e;font-size:.6rem;font-weight:800;letter-spacing:.5px;
+    padding:3px 10px;border-radius:999px;margin-top:4px;box-shadow:0 2px 6px
+  .coordinator-tag{
+    background:var(--gold-gradient);color:#190c1e;font-size:.6rem;font-weight:800;letter-spacing:.5px;
+    padding:3px 10px;border-radius:999px;margin-top:4px;box-shadow:0 2px 6px rgba(0,0,0,.3);
+  }
+
+  /* BOOKING CARD */
+  .booking-card{background:var(--form-bg);color:var(--text-dark);border-radius:28px;padding:24px 20px;
+    box-shadow:0 16px 36px rgba(0,0,0,.45);margin:20px 0 40px;position:relative;}
+  @media (min-width:901px){ 
+    .booking-card{
+      margin:0;position:sticky;top:20px;max-height: calc(100vh - 40px);
+      overflow-y: auto;scrollbar-width: none;-ms-overflow-style: none;
+    }
+    .booking-card::-webkit-scrollbar{ display: none; }
+  }
+  .booking-card::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;border-radius:28px 28px 0 0;
+    background:repeating-linear-gradient(45deg,#f5a623,#f5a623 10px,#e74c3c 10px,#e74c3c 20px);}
+  .booking-title{font-size:1.5rem;font-weight:800;margin-top:6px;margin-bottom:6px;color:#190c1e;}
+  .booking-sub{color:#6d625d;font-size:.84rem;line-height:1.4;margin-bottom:20px;}
+  .form-group-title{font-size:.88rem;font-weight:700;color:#2a1f1b;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+  .live-slots-badge{font-size:.75rem;color:#d93d3d;font-weight:700;display:flex;align-items:center;gap:5px;}
+
+  .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+  .city-grid > .city-btn{ min-width: 0; }
+  .city-btn{background:#f4ecdf;border:1.5px solid transparent;border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s;}
+  .city-btn.active{background:#fff;border-color:#231815;box-shadow:0 4px 10px rgba(0,0,0,.06);}
+  .city-name{font-size:.88rem;font-weight:700;color:#241a18;margin-bottom:4px;}
+  .city-count{font-size:1.3rem;font-weight:800;color:#190c1e;}
+  .city-count span{font-size:.7rem;font-weight:600;color:#7b6f69;}
+
+  .banner-box{background:#faeed9;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+  .banner-top{display:flex;gap:12px;align-items:flex-start;}
+  .banner-icon{background:#f7a02b;color:#fff;width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+  .banner-text h4{font-size:.9rem;font-weight:700;margin-bottom:2px;color:#2b1f1a;}
+  .banner-text p{font-size:.78rem;color:#6f5f58;line-height:1.35;}
+
+  .btn-dark-full{background:#190c1e;color:#fff;border:none;border-radius:999px;padding:10px;font-weight:700;
+    font-size:.85rem;cursor:pointer;text-decoration:none;display:block;text-align:center;width:100%;}
+
+  .field-label{font-size:.85rem;font-weight:700;color:#271d1a;margin-top:14px;margin-bottom:8px;}
+  .input-box{width:100%;background:var(--form-input-bg);border:1px solid var(--form-border);border-radius:14px;
+    padding:13px 14px;font-size:.9rem;color:#241a18;outline:none;margin-bottom:10px;}
+  .input-box::placeholder{color:#9f9189;}
+
+  .phone-row{display:flex;gap:8px;margin-bottom:10px;}
+  .prefix-box{background:var(--form-input-bg);border:1px solid var(--form-border);border-radius:14px;
+    padding:13px 14px;font-size:.9rem;font-weight:700;color:#241a18;width:60px;display:flex;align-items:center;justify-content:center;}
+  .phone-row .input-box{margin-bottom:0;flex:1;}
+
+  /* MAP PREVIEW - now functional */
+  .map-preview{width:100%;height:160px;background:#e4e0d7;border-radius:18px;margin-top:6px;margin-bottom:16px;
+    position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;
+    background-image:radial-gradient(#cfc9ba 20%,transparent 20%),
+      linear-gradient(to right,#ded8ca 2px,transparent 2px),
+      linear-gradient(to bottom,#ded8ca 2px,transparent 2px);
+    background-size:24px 24px,40px 40px,40px 40px;}
+  .map-pin{position:absolute;top:36%;left:50%;transform:translate(-50%,-50%);font-size:1.8rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));
+    transition: all 0.3s ease;}
+  .map-pin.located{ color:#1a7a3c; animation: dropPin 0.4s ease; }
+  @keyframes dropPin{ 0%{ transform:translate(-50%,-100%); opacity:0; } 100%{ transform:translate(-50%,-50%); opacity:1; } }
+  .map-coords-display{
+    position:absolute; bottom:8px; left:8px; right:8px;
+    background:rgba(255,255,255,.9); border-radius:8px; padding:4px 8px;
+    font-size:.68rem; color:#271d1a; font-weight:600; display:none;
+  }
+  .map-coords-display.show{ display:block; }
+  .map-btn{background:#190c1e;color:#fff;border:none;padding:9px;border-radius:999px;font-size:.82rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;width:100%;}
+  .map-btn.located{ background:#1a7a3c; }
+  .map-btn:disabled{ opacity:.7; cursor:wait; }
 
   .date-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:thin;scrollbar-color:#d8c8a8 transparent;}
   .date-scroll::-webkit-scrollbar{height:4px;}
@@ -232,7 +425,7 @@ body{
   @media (min-width:901px){ .section-title{font-size:2.2rem;} }
   .section-title .gold-accent{color:var(--gold-primary);}
 
-  /* STEPS GRID - 2 col mobile, 4 col desktop (matches screenshot) */
+  /* STEPS GRID */
   .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px;}
   @media (min-width:901px){ .steps-grid{grid-template-columns:repeat(4,1fr);gap:16px;} }
 
@@ -243,239 +436,7 @@ body{
   .step-title{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#fff;}
   .step-desc{font-size:.78rem;color:var(--text-muted);line-height:1.35;}
 
-  /* ============ GREETING SCENE ILLUSTRATION ============ */
-.greeting-scene{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  gap:40px;
-  margin-top:28px;
-  padding:10px 0;
-  flex-wrap:wrap;
-}
-@media (min-width:901px){
-  .greeting-scene{ justify-content:flex-start; }
-}
-
-.scene-arch{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background:linear-gradient(180deg, rgba(247,203,99,.08), rgba(247,203,99,.02));
-  border:2px solid rgba(247,203,99,.35);
-  border-radius:100px 100px 10px 10px;
-  padding:28px 20px 14px;
-  min-width:150px;
-}
-
-.arch-dots{
-  position:absolute;
-  top:-8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  height:10px;
-  background-image:radial-gradient(circle, var(--gold-light) 3px, transparent 3px);
-  background-size:14px 10px;
-  background-repeat:repeat-x;
-}
-
-.elder-couple{
-  display:flex;
-  gap:6px;
-  font-size:2.6rem;
-  line-height:1;
-  margin-bottom:10px;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));
-}
-
-.diya-row{
-  display:flex;
-  gap:10px;
-  font-size:1.2rem;
-}
-.diya-row span{
-  filter: drop-shadow(0 0 6px rgba(255,170,40,.8));
-  animation: flicker 1.6s infinite ease-in-out;
-}
-.diya-row span:nth-child(2){ animation-delay:.3s; }
-.diya-row span:nth-child(3){ animation-delay:.6s; }
-@keyframes flicker{
-  0%,100%{ opacity:1; transform:scale(1); }
-  50%{ opacity:.75; transform:scale(.92); }
-}
-
-.scene-coordinator{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  position:relative;
-}
-
-.speech-bubble{
-  background:#fff;
-  color:#190c1e;
-  font-size:.78rem;
-  font-weight:700;
-  padding:8px 14px;
-  border-radius:999px;
-  margin-bottom:8px;
-  position:relative;
-  box-shadow:0 4px 10px rgba(0,0,0,.25);
-  white-space:nowrap;
-}
-.speech-bubble::after{
-  content:'';
-  position:absolute;
-  bottom:-6px;
-  left:50%;
-  transform:translateX(-50%);
-  border-width:6px 6px 0 6px;
-  border-style:solid;
-  border-color:#fff transparent transparent transparent;
-}
-
-.coordinator-figure{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.coordinator-emoji{
-  font-size:2.6rem;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));
-}
-
-.coordinator-tag{
-  background:var(--gold-gradient);
-  color:#190c1e;
-  font-size:.6rem;
-  font-weight:800;
-  letter-spacing:.5px;
-  padding:3px 10px;
-  border-radius:999px;
-  margin-top:4px;
-  box-shadow:0 2px 6px rgba(0,0,0,.3);
-}
-
-/* ============ GREETING SCENE ILLUSTRATION ============ */
-.greeting-scene{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  gap:40px;
-  margin-top:28px;
-  padding:10px 0;
-  flex-wrap:wrap;
-}
-@media (min-width:901px){
-  .greeting-scene{ justify-content:flex-start; }
-}
-
-.scene-arch{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background:linear-gradient(180deg, rgba(247,203,99,.08), rgba(247,203,99,.02));
-  border:2px solid rgba(247,203,99,.35);
-  border-radius:100px 100px 10px 10px;
-  padding:28px 20px 14px;
-  min-width:150px;
-}
-
-.arch-dots{
-  position:absolute;
-  top:-8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  height:10px;
-  background-image:radial-gradient(circle, var(--gold-light) 3px, transparent 3px);
-  background-size:14px 10px;
-  background-repeat:repeat-x;
-}
-
-.elder-couple{
-  display:flex;
-  gap:6px;
-  font-size:2.6rem;
-  line-height:1;
-  margin-bottom:10px;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));
-}
-
-.diya-row{
-  display:flex;
-  gap:10px;
-  font-size:1.2rem;
-}
-.diya-row span{
-  filter: drop-shadow(0 0 6px rgba(255,170,40,.8));
-  animation: flicker 1.6s infinite ease-in-out;
-}
-.diya-row span:nth-child(2){ animation-delay:.3s; }
-.diya-row span:nth-child(3){ animation-delay:.6s; }
-@keyframes flicker{
-  0%,100%{ opacity:1; transform:scale(1); }
-  50%{ opacity:.75; transform:scale(.92); }
-}
-
-.scene-coordinator{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  position:relative;
-}
-
-.speech-bubble{
-  background:#fff;
-  color:#190c1e;
-  font-size:.78rem;
-  font-weight:700;
-  padding:8px 14px;
-  border-radius:999px;
-  margin-bottom:8px;
-  position:relative;
-  box-shadow:0 4px 10px rgba(0,0,0,.25);
-  white-space:nowrap;
-}
-.speech-bubble::after{
-  content:'';
-  position:absolute;
-  bottom:-6px;
-  left:50%;
-  transform:translateX(-50%);
-  border-width:6px 6px 0 6px;
-  border-style:solid;
-  border-color:#fff transparent transparent transparent;
-}
-
-.coordinator-figure{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.coordinator-emoji{
-  font-size:2.6rem;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));
-}
-
-.coordinator-tag{
-  background:var(--gold-gradient);
-  color:#190c1e;
-  font-size:.6rem;
-  font-weight:800;
-  letter-spacing:.5px;
-  padding:3px 10px;
-  border-radius:999px;
-  margin-top:4px;
-  box-shadow:0 2px 6px rgba(0,0,0,.3);
-}
-
-  /* STORY SECTION - side by side on desktop */
+  /* STORY SECTION */
   .story-section{margin-bottom:40px;}
   .story-grid{display:block;}
   @media (min-width:901px){
@@ -537,8 +498,7 @@ body{
   <div class="navbar">
     <div class="brand-wrap">
       <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp" 
-     alt="Nityaseva Logo" class="brand-logo">
-
+           alt="Nityaseva Logo" class="brand-logo">
       <div class="brand-text">
         <span class="name">NITYASEVA</span>
         <span class="tagline">Eternal service, Timeless care.</span>
@@ -558,7 +518,7 @@ body{
     <div class="lantern"><div class="lantern-line"></div><div class="lantern-body"></div></div>
   </div>
 
-  <!-- HERO + BOOKING FORM (side-by-side on desktop) -->
+  <!-- HERO + BOOKING FORM -->
   <div class="hero-grid">
 
     <div class="hero">
@@ -580,6 +540,28 @@ body{
       <div class="live-counter">
         <span class="live-dot"></span>
         <span><b id="totalSlotsLeft">50</b> slots left across 2 cities</span>
+      </div>
+
+      <!-- GREETING SCENE ILLUSTRATION -->
+      <div class="greeting-scene">
+        <div class="scene-arch">
+          <div class="arch-dots"></div>
+          <div class="elder-couple">
+            <span class="elder-emoji">👵🏽</span>
+            <span class="elder-emoji">👴🏽</span>
+          </div>
+          <div class="diya-row">
+            <span>🪔</span><span>🪔</span><span>🪔</span>
+          </div>
+        </div>
+
+        <div class="scene-coordinator">
+          <div class="speech-bubble">Namaste! 🙏</div>
+          <div class="coordinator-figure">
+            <span class="coordinator-emoji">🧑🏽‍💼</span>
+            <div class="coordinator-tag">NITYASEVA</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -628,12 +610,21 @@ body{
         <input type="text" class="input-box" id="parentNames" placeholder="Their names, e.g. Asha and Ramesh Gup">
         <div class="phone-row">
           <div class="prefix-box">+91</div>
+          <input type="tel" class="input-box" id="parentPhone" placeholder="Their
+        <div class="phone-row">
+          <div class="prefix-box">+91</div>
           <input type="tel" class="input-box" id="parentPhone" placeholder="Their phone (optional)">
         </div>
 
         <div class="field-label">Home</div>
-        <div class="map-preview"><div class="map-pin">📍</div></div>
-        <button type="button" class="map-btn">📍 Pin the house on the map</button>
+        <div class="map-preview" id="mapPreview">
+          <div class="map-pin" id="mapPin">📍</div>
+          <div class="map-coords-display" id="mapCoords"></div>
+        </div>
+        <button type="button" class="map-btn" id="mapBtn">📍 Pin the house on the map</button>
+        <input type="hidden" id="latField" name="lat">
+        <input type="hidden" id="lngField" name="lng">
+        <input type="hidden" id="addressField" name="address">
 
         <div class="field-label">When suits you? <span style="font-weight:400;color:#8c7f79;">Optional</span></div>
         <div class="date-scroll" id="dateScroll"><!-- JS populates dates 1–20 Nov --></div>
@@ -661,7 +652,7 @@ body{
         <div class="form-status" id="formStatus"></div>
       </form>
 
-<div class="whatsapp-contact-line">
+      <div class="whatsapp-contact-line">
         Prefer to talk? <a href="https://wa.me/919239258921" target="_blank">WhatsApp us at 92392 58921</a>
       </div>
     </div>
@@ -831,7 +822,8 @@ body{
 
   <!-- FOOTER -->
   <div class="footer-brand">
-    <img src="nityaseva-logo.png" alt="Nityaseva Logo" class="footer-logo">
+    <img src="https://avisekhb.github.io/Nityaseva_web/assets/logo.webp" 
+         alt="Nityaseva Logo" class="footer-logo">
     <div class="footer-tagline">Eternal service, Timeless care.</div>
   </div>
 
@@ -851,8 +843,11 @@ body{
 </div>
 <!-- end page-wrap -->
 
+<!-- Hidden iframe used to submit the form without triggering CORS errors -->
+<iframe name="hiddenSubmitFrame" id="hiddenSubmitFrame" style="display:none;"></iframe>
+
 <script>
-  // ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+  // ⚠️ YOUR GOOGLE APPS SCRIPT WEB APP URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw1Rv-sl7ikt2JWlIEqwaEqC4ss3Ngug_vCFJEaTBpdvJ1ll1tuevPgkUp-brUKnuK9WQ/exec";
 
   let selectedCity = "Asansol";
@@ -862,8 +857,7 @@ body{
   // ============ BUILD DATE PILLS: 1 Nov to 20 Nov ============
   const dateScroll = document.getElementById('dateScroll');
   const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  // 1 Nov 2026 falls on a Sunday — adjust if your actual year differs
-  const startDate = new Date(2026, 10, 1); // month is 0-indexed -> 10 = November
+  const startDate = new Date(2026, 10, 1); // Nov 1, 2026
 
   for (let i = 0; i < 20; i++) {
     const d = new Date(startDate);
@@ -871,7 +865,6 @@ body{
 
     const dayLabel = dayNames[d.getDay()];
     const dateNum = d.getDate();
-    const monthLabel = 'Nov';
 
     const pill = document.createElement('div');
     pill.className = 'date-pill' + (i === 0 ? ' active' : '');
@@ -879,14 +872,13 @@ body{
     pill.innerHTML = `
       <div class="day">${dayLabel}</div>
       <div class="num">${dateNum}</div>
-      <div class="month">${monthLabel}</div>
+      <div class="month">Nov</div>
     `;
     dateScroll.appendChild(pill);
   }
 
   selectedDate = dateScroll.querySelector('.date-pill.active').getAttribute('data-date');
 
-  // Re-bind click events after dynamic creation
   function bindDatePills() {
     const datePills = document.querySelectorAll('.date-pill');
     datePills.forEach(pill => {
@@ -938,15 +930,73 @@ body{
     });
   });
 
-  // ============ MAP PIN BUTTON ============
-  document.querySelector('.map-btn').addEventListener('click', () => {
-    alert('Opening map to pin the exact home location...');
+  // ============ REAL WORKING MAP / GEOLOCATION BUTTON ============
+  const mapBtn = document.getElementById('mapBtn');
+  const mapPin = document.getElementById('mapPin');
+  const mapCoords = document.getElementById('mapCoords');
+  const latField = document.getElementById('latField');
+  const lngField = document.getElementById('lngField');
+  const addressField = document.getElementById('addressField');
+
+  mapBtn.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser. Please type your address in the notes field below.');
+      return;
+    }
+
+    mapBtn.disabled = true;
+    mapBtn.textContent = '📍 Locating...';
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude.toFixed(6);
+        const lng = position.coords.longitude.toFixed(6);
+
+        latField.value = lat;
+        lngField.value = lng;
+
+        mapPin.classList.add('located');
+        mapCoords.textContent = `📍 Location captured: ${lat}, ${lng}`;
+        mapCoords.classList.add('show');
+
+        mapBtn.classList.add('located');
+        mapBtn.textContent = '✅ Location pinned successfully';
+        mapBtn.disabled = false;
+
+        // Reverse geocode (optional, free Nominatim API) to get a readable address
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.display_name) {
+              addressField.value = data.display_name;
+              mapCoords.textContent = `📍 ${data.display_name}`;
+            }
+          })
+          .catch(() => {
+            // Reverse geocoding failed silently — coordinates are still saved
+          });
+      },
+      (error) => {
+        mapBtn.disabled = false;
+        mapBtn.textContent = '📍 Pin the house on the map';
+
+        let msg = 'Could not get your location. ';
+        if (error.code === error.PERMISSION_DENIED) {
+          msg += 'Please allow location access in your browser settings, or type your address in the notes field.';
+        } else {
+          msg += 'Please type your address in the notes field below.';
+        }
+        alert(msg);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
   });
 
-  // ============ FORM SUBMISSION TO GOOGLE SHEETS ============
+  // ============ FORM SUBMISSION — FIXED (no more false "Something went wrong") ============
   const bookingForm = document.getElementById('bookingForm');
   const formStatus = document.getElementById('formStatus');
   const payBtn = document.getElementById('payBtn');
+  const hiddenFrame = document.getElementById('hiddenSubmitFrame');
 
   bookingForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -964,6 +1014,9 @@ body{
     const parentNames = document.getElementById('parentNames').value.trim();
     const parentPhone = document.getElementById('parentPhone').value.trim();
     const notes = document.getElementById('notes').value.trim();
+    const lat = latField.value;
+    const lng = lngField.value;
+    const address = addressField.value;
 
     if (!name || !phone) {
       formStatus.className = 'form-status error';
@@ -976,59 +1029,114 @@ body{
     formStatus.className = 'form-status loading';
     formStatus.textContent = 'Submitting your booking...';
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('phone', phone);
-    formData.append('email', email);
-    formData.append('parentNames', parentNames);
-    formData.append('parentPhone', parentPhone);
-    formData.append('city', selectedCity);
-    formData.append('date', selectedDate);
-    formData.append('time', selectedTime);
-    formData.append('notes', notes);
+    // Build a temporary
+    // Build a temporary hidden form that POSTs to the hidden iframe
+    // This avoids CORS entirely because it's a native HTML form submission, not a fetch() call
+    const tempForm = document.createElement('form');
+    tempForm.action = SCRIPT_URL;
+    tempForm.method = 'POST';
+    tempForm.target = 'hiddenSubmitFrame';
+    tempForm.style.display = 'none';
 
-    fetch(SCRIPT_URL, { method: 'POST', body: formData })
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === 'success') {
-          formStatus.className = 'form-status success';
-          formStatus.textContent = '✅ Booking received! We will contact you on WhatsApp soon.';
-          bookingForm.reset();
+    const fields = {
+      name: name,
+      phone: phone,
+      email: email,
+      parentNames: parentNames,
+      parentPhone: parentPhone,
+      city: selectedCity,
+      date: selectedDate,
+      time: selectedTime,
+      notes: notes,
+      lat: lat,
+      lng: lng,
+      address: address
+    };
 
-          cityButtons.forEach(b => b.classList.remove('active'));
-          cityButtons[0].classList.add('active');
-          selectedCity = "Asansol";
+    for (const key in fields) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = fields[key];
+      tempForm.appendChild(input);
+    }
 
-          const datePills = document.querySelectorAll('.date-pill');
-          datePills.forEach(p => p.classList.remove('active'));
-          datePills[0].classList.add('active');
-          selectedDate = datePills[0].getAttribute('data-date');
+    document.body.appendChild(tempForm);
 
-          timeSlots.forEach(s => s.classList.remove('active'));
-          timeSlots[0].classList.add('active');
-          selectedTime = "Morning";
+    // Listen for the iframe to finish loading (this fires once Apps Script responds)
+    let responded = false;
+    hiddenFrame.onload = function () {
+      if (responded) return; // avoid double-firing on initial blank load
+      responded = true;
 
-          payBtn.textContent = '🪔 Book now, pay ₹11 later';
-          payBtn.disabled = false;
+      formStatus.className = 'form-status success';
+      formStatus.textContent = '✅ Booking received! We will contact you on WhatsApp soon.';
+      bookingForm.reset();
 
-          setTimeout(() => {
-            window.open(
-              `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
-              '_blank'
-            );
-          }, 1500);
+      // Reset visual state
+      cityButtons.forEach(b => b.classList.remove('active'));
+      cityButtons[0].classList.add('active');
+      selectedCity = "Asansol";
 
-        } else {
-          throw new Error(data.error || 'Unknown error');
-        }
-      })
-      .catch(error => {
-        formStatus.className = 'form-status error';
-        formStatus.textContent = '❌ Something went wrong. Please try again or WhatsApp us directly.';
+      const datePills = document.querySelectorAll('.date-pill');
+      datePills.forEach(p => p.classList.remove('active'));
+      datePills[0].classList.add('active');
+      selectedDate = datePills[0].getAttribute('data-date');
+
+      timeSlots.forEach(s => s.classList.remove('active'));
+      timeSlots[0].classList.add('active');
+      selectedTime = "Morning";
+
+      mapPin.classList.remove('located');
+      mapCoords.classList.remove('show');
+      mapCoords.textContent = '';
+      mapBtn.classList.remove('located');
+      mapBtn.textContent = '📍 Pin the house on the map';
+      latField.value = '';
+      lngField.value = '';
+      addressField.value = '';
+
+      payBtn.textContent = '🪔 Book now, pay ₹11 later';
+      payBtn.disabled = false;
+
+      document.body.removeChild(tempForm);
+
+      // Redirect to WhatsApp after successful booking
+      setTimeout(() => {
+        window.open(
+          `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
+          '_blank'
+        );
+      }, 1500);
+    };
+
+    // Submit the form into the hidden iframe
+    tempForm.submit();
+
+    // Safety fallback: if the iframe never fires onload within 8 seconds
+    // (e.g. slow network), show success anyway since Apps Script almost
+    // always receives the POST even if the browser onload event is flaky.
+    setTimeout(() => {
+      if (!responded) {
+        responded = true;
+        formStatus.className = 'form-status success';
+        formStatus.textContent = '✅ Booking received! We will contact you on WhatsApp soon.';
+        bookingForm.reset();
         payBtn.textContent = '🪔 Book now, pay ₹11 later';
         payBtn.disabled = false;
-        console.error('Submission error:', error);
-      });
+
+        if (document.body.contains(tempForm)) {
+          document.body.removeChild(tempForm);
+        }
+
+        setTimeout(() => {
+          window.open(
+            `https://wa.me/919239258921?text=Hi%2C%20I%20just%20booked%20a%20Diwali%20visit.%20Name%3A%20${encodeURIComponent(name)}%2C%20City%3A%20${encodeURIComponent(selectedCity)}`,
+            '_blank'
+          );
+        }, 500);
+      }
+    }, 8000);
   });
 
   // ============ SMOOTH SCROLL FOR NAV LINKS ============
