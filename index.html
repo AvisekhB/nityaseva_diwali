@@ -105,7 +105,20 @@ body{
   /* BOOKING CARD */
   .booking-card{background:var(--form-bg);color:var(--text-dark);border-radius:28px;padding:24px 20px;
     box-shadow:0 16px 36px rgba(0,0,0,.45);margin:20px 0 40px;position:relative;}
-  @media (min-width:901px){ .booking-card{margin:0;position:sticky;top:20px;} }
+  @media (min-width:901px){ 
+  .booking-card{
+    margin:0;
+    position:sticky;
+    top:20px;
+    max-height: calc(100vh - 40px);   /* 👈 constrains height to viewport */
+    overflow-y: auto;                 /* 👈 enables internal scroll */
+    scrollbar-width: none;            /* 👈 hides scrollbar in Firefox */
+    -ms-overflow-style: none;         /* 👈 hides scrollbar in IE/Edge */
+  }
+  .booking-card::-webkit-scrollbar{
+    display: none;                    /* 👈 hides scrollbar in Chrome/Safari */
+  }
+}
   .booking-card::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;border-radius:28px 28px 0 0;
     background:repeating-linear-gradient(45deg,#f5a623,#f5a623 10px,#e74c3c 10px,#e74c3c 20px);}
   .booking-title{font-size:1.5rem;font-weight:800;margin-top:6px;margin-bottom:6px;color:#190c1e;}
