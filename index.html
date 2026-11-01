@@ -61,6 +61,7 @@
   .hero-grid{display:block;}
   @media (min-width:901px){
     .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:48px;align-items:start;}
+      .hero-grid > *{ min-width: 0; }   /* 👈 ADD THIS LINE — fixes the overflow bug */
   }
 
   .hero{text-align:center;padding:4px 0 24px;}
