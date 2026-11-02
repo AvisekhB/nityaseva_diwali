@@ -678,8 +678,55 @@
 
   // ============ CITY SELECTOR ============
   const cityButtons = document.querySelectorAll('.city-btn');
+
+  // ============ LIVE SLOTS (reads real counts from the Google Sheet) ============
+  const MAX_SLOTS = 25;
+  function renderSlots(left) {
+    let total = 0;
+    cityButtons.forEach(btn => {
+      const city = btn.getAttribute('data-city');
+      const n = (left && typeof left[city] === 'number') ? left[city] : MAX_SLOTS;
+      total += n;
+      const countEl = btn.querySelector('.city-count');
+      if (n <= 0) {
+        countEl.innerHTML = 'Full';
+        btn.classList.add('full');
+        btn.style.opacity = '.55';
+        btn.style.cursor = 'not-allowed';
+      } else {
+        countEl.innerHTML = n + ' <span>left</span>';
+        btn.classList.remove('full');
+        btn.style.opacity = '';
+        btn.style.cursor = '';
+      }
+    });
+    const totalEl = document.getElementById('totalSlotsLeft');
+    if (totalEl) totalEl.textContent = total;
+
+    // if the selected city just became full, move to one that still has seats
+    const active = document.querySelector('.city-btn.active');
+    if (active && active.classList.contains('full')) {
+      const open = Array.from(cityButtons).find(b => !b.classList.contains('full'));
+      if (open) {
+        cityButtons.forEach(b => b.classList.remove('active'));
+        open.classList.add('active');
+        selectedCity = open.getAttribute('data-city');
+      }
+    }
+  }
+
+  function loadSlots() {
+    fetch(SCRIPT_URL + '?action=slots&t=' + Date.now())
+      .then(r => r.json())
+      .then(d => { if (d && d.result === 'ok') renderSlots(d.left); })
+      .catch(() => {}); // if it fails, keep showing the default numbers
+  }
+  loadSlots();
+  setInterval(loadSlots, 30000); // refresh every 30 seconds
+
   cityButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('full')) return;
       cityButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       selectedCity = btn.getAttribute('data-city');
@@ -883,6 +930,7 @@
         document.body.removeChild(tempForm);
       }
 
+      setTimeout(loadSlots, 2000);
       openWhatsApp(1500);
     };
 
@@ -901,6 +949,7 @@
           document.body.removeChild(tempForm);
         }
 
+        setTimeout(loadSlots, 2000);
         openWhatsApp(500);
       }
     }, 8000);
